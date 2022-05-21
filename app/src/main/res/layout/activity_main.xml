@@ -19,6 +19,18 @@
         app:srcCompat="@drawable/roodkleed"
         tools:ignore="ImageContrastCheck" />
 
+
+    <AnalogClock
+        android:id="@+id/simpleAnalogClock"
+        android:layout_width="wrap_content"
+        android:layout_height="285dp"
+        android:layout_marginTop="60dp"
+        android:dialTint="#00000000"
+        android:hand_hourTint="@color/design_default_color_on_primary"
+        android:hand_minuteTint="@color/design_default_color_on_primary"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="63dp" />
+
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
