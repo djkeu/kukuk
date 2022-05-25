@@ -2,4 +2,6 @@
     <string name="app_name">Kukuk</string>
     <string name="kukuk">kukuk</string>
     <string name="kukukButtonText">Kukuk</string>
+    <string name="kukukTextViewText">Ku kuk</string>
+    <string name="kukukTextView">Ku kuk!</string>
 </resources>
