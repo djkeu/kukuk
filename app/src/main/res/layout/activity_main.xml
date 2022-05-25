@@ -4,6 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:backgroundTint="@android:color/transparent"
+    android:backgroundTintMode="add"
     tools:context=".MainActivity">
 
     <!-- Background image -->
@@ -24,6 +26,8 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:backgroundTint="@android:color/transparent"
+        android:backgroundTintMode="add"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -46,15 +50,15 @@
             android:id="@+id/button"
             android:layout_width="113dp"
             android:layout_height="82dp"
-            android:layout_marginTop="32dp"
-            android:backgroundTint="@color/cardview_light_background"
+            android:layout_marginBottom="32dp"
+            android:backgroundTint="@android:color/transparent"
             android:backgroundTintMode="add"
             android:text="@string/kukukButtonText"
-            android:textColor="#181113"
+            android:textColor="@color/design_default_color_on_primary"
             android:textSize="20sp"
+            app:layout_constraintBottom_toTopOf="@+id/textView"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/simpleAnalogClock" />
+            app:layout_constraintStart_toStartOf="parent" />
 
         <!-- Kukuk logo -->
         <TextView
