@@ -55,5 +55,19 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
 
+        <Button
+            android:id="@+id/button"
+            android:layout_width="113dp"
+            android:layout_height="82dp"
+            android:layout_marginTop="32dp"
+            android:backgroundTint="@color/cardview_light_background"
+            android:backgroundTintMode="add"
+            android:text="@string/kukukButtonText"
+            android:textColor="#181113"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/simpleAnalogClock" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
