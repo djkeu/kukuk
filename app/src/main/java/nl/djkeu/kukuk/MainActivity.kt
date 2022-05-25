@@ -3,7 +3,8 @@ package nl.djkeu.kukuk
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
-import android.widget.Toast
+import android.widget.TextView
+
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -12,8 +13,8 @@ class MainActivity : AppCompatActivity() {
 
         val kukuButton: Button = findViewById(R.id.button)
         kukuButton.setOnClickListener {
-            val kukuToast = Toast.makeText(this, "Kukuk!", Toast.LENGTH_SHORT)
-            kukuToast.show()
+            val resultTextView: TextView = findViewById(R.id.textView2)
+            resultTextView.text = getString(R.string.kukukTextView)
         }
     }
 }
