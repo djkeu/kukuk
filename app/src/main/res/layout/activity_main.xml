@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+    <!-- Background image -->
     <ImageView
         android:id="@+id/roodkleed"
         android:layout_width="wrap_content"
@@ -41,6 +42,21 @@
             app:layout_constraintTop_toTopOf="parent"
             tools:targetApi="s" />
 
+        <Button
+            android:id="@+id/button"
+            android:layout_width="113dp"
+            android:layout_height="82dp"
+            android:layout_marginTop="32dp"
+            android:backgroundTint="@color/cardview_light_background"
+            android:backgroundTintMode="add"
+            android:text="@string/kukukButtonText"
+            android:textColor="#181113"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/simpleAnalogClock" />
+
+        <!-- Kukuk logo -->
         <TextView
             android:id="@+id/textView"
             android:layout_width="wrap_content"
@@ -54,6 +70,7 @@
             android:textStyle="italic"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
