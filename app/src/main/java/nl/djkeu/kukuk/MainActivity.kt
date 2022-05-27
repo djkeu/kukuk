@@ -41,8 +41,8 @@ class MainActivity : AppCompatActivity() {
 
         fun minutelyCall() {
             val getCurrentTime = Calendar.getInstance().time
-            val formatter = getTimeInstance()  // Needs a time format
-            // val formatter = SimpleDateFormat.getTimeInstance()
+            // val formatter = getTimeInstance()  // Needs a time format
+            val formatter = SimpleDateFormat("ss.SSS", Locale.getDefault())
             val currentTime = formatter.format(getCurrentTime)
 
             if (currentTime == "00.001") {
