@@ -13,7 +13,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        fun showKukuk() {
+        fun showKuku() {
             val resultTextView: TextView = findViewById(R.id.textView2)
             resultTextView.text = getString(R.string.kukukTextView)
 
@@ -23,9 +23,13 @@ class MainActivity : AppCompatActivity() {
             )
         }
 
+        fun playKukuOnce() {
+            println()
+        }
+
         val kukuButton: Button = findViewById(R.id.button)
         kukuButton.setOnClickListener {
-            showKukuk()
+            showKuku()
         }
 
     }
