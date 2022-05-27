@@ -7,6 +7,8 @@ import android.os.Handler
 import android.os.Looper
 import android.widget.Button
 import android.widget.TextView
+import java.time.LocalDateTime
+import java.time.format.DateTimeFormatter
 
 
 class MainActivity : AppCompatActivity() {
@@ -36,5 +38,15 @@ class MainActivity : AppCompatActivity() {
             showKuku()
         }
 
+        fun minutely_call() {
+            val getCurrentTime = LocalDateTime.now()
+            val formatter = DateTimeFormatter.ofPattern("ss.SS")
+            val currentTime = getCurrentTime.format(formatter)
+
+            if (currentTime == "01.01") {
+                playKukuOnce()
+            }
+        }
+        minutely_call()
     }
 }
