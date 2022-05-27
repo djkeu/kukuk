@@ -13,17 +13,20 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val kukuButton: Button = findViewById(R.id.button)
-        kukuButton.setOnClickListener {
+        fun showKukuk() {
             val resultTextView: TextView = findViewById(R.id.textView2)
             resultTextView.text = getString(R.string.kukukTextView)
 
             Handler(Looper.getMainLooper()).postDelayed(
-                {
-                    resultTextView.text = ""
-                },
+                { resultTextView.text = "" },
                 1000
             )
         }
+
+        val kukuButton: Button = findViewById(R.id.button)
+        kukuButton.setOnClickListener {
+            showKukuk()
+        }
+
     }
 }
