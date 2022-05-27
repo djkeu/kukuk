@@ -4,4 +4,5 @@
     <string name="kukukButtonText">Kukuk</string>
     <string name="kukukTextViewText">Ku kuk</string>
     <string name="kukukTextView">Ku kuk!</string>
+    <string name="emptyString"> </string>
 </resources>
