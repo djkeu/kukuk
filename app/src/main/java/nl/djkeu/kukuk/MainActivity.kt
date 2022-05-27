@@ -40,10 +40,10 @@ class MainActivity : AppCompatActivity() {
 
         fun minutelyCall() {
             val getCurrentTime = Calendar.getInstance().time
-            val formatter = SimpleDateFormat("ss.SSS", Locale.getDefault())
+            val formatter = SimpleDateFormat("ss", Locale.getDefault())
             val currentTime = formatter.format(getCurrentTime)
 
-            if (currentTime == "00.001") {
+            if (currentTime == "00") {
                 playKukuOnce()
             }
         }
