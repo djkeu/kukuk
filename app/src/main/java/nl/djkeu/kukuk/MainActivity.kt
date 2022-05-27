@@ -8,6 +8,7 @@ import android.os.Looper
 import android.widget.Button
 import android.widget.TextView
 import java.text.DateFormat.getTimeInstance
+import java.text.SimpleDateFormat
 import java.util.*
 
 
@@ -41,6 +42,7 @@ class MainActivity : AppCompatActivity() {
         fun minutelyCall() {
             val getCurrentTime = Calendar.getInstance().time
             val formatter = getTimeInstance()  // Needs a time format
+            // val formatter = SimpleDateFormat.getTimeInstance()
             val currentTime = formatter.format(getCurrentTime)
 
             if (currentTime == "00.001") {
