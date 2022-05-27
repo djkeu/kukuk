@@ -38,7 +38,7 @@ class MainActivity : AppCompatActivity() {
             showKuku()
         }
 
-        fun minutely_call() {
+        fun minutelyCall() {
             val getCurrentTime = LocalDateTime.now()
             val formatter = DateTimeFormatter.ofPattern("ss.SS")
             val currentTime = getCurrentTime.format(formatter)
@@ -47,6 +47,6 @@ class MainActivity : AppCompatActivity() {
                 playKukuOnce()
             }
         }
-        minutely_call()
+        minutelyCall()
     }
 }
