@@ -7,7 +7,6 @@ import android.os.Handler
 import android.os.Looper
 import android.widget.Button
 import android.widget.TextView
-import java.text.DateFormat.getTimeInstance
 import java.text.SimpleDateFormat
 import java.util.*
 
