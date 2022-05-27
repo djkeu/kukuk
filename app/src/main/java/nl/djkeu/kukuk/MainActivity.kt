@@ -1,5 +1,6 @@
 package nl.djkeu.kukuk
 
+import android.media.MediaPlayer
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
@@ -24,11 +25,14 @@ class MainActivity : AppCompatActivity() {
         }
 
         fun playKukuOnce() {
-            println()
+            val resId = getResources().getIdentifier("keukuk", "raw", getPackageName())
+            val mediaPlayer = MediaPlayer.create(this, resId)
+            mediaPlayer.start()
         }
 
         val kukuButton: Button = findViewById(R.id.button)
         kukuButton.setOnClickListener {
+            playKukuOnce()
             showKuku()
         }
 
