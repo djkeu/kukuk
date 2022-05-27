@@ -27,7 +27,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         fun playKukuOnce() {
-            val resId = getResources().getIdentifier("keukuk", "raw", getPackageName())
+            val resId = resources.getIdentifier("keukuk", "raw", packageName)
             val mediaPlayer = MediaPlayer.create(this, resId)
             mediaPlayer.start()
         }
