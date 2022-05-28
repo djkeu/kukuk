@@ -49,7 +49,8 @@ class MainActivity : AppCompatActivity() {
         }
 
         // Callback needed
-        // minutelyCall()
+        // see: Dev/kotlin/callBack01.kt for code
+        minutelyCall()
     }
 }
 
