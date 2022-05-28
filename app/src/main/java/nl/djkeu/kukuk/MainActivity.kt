@@ -38,7 +38,7 @@ class MainActivity : AppCompatActivity() {
             showKuku()
         }
 
-        fun minutelyCall() {
+        fun minutelyAlarms() {
             val getCurrentTime = Calendar.getInstance().time
             val formatter = SimpleDateFormat("ss", Locale.getDefault())
             val currentTime = formatter.format(getCurrentTime)
@@ -50,7 +50,7 @@ class MainActivity : AppCompatActivity() {
 
         // Callback needed
         // see: Dev/kotlin/callBack01.kt for code
-        minutelyCall()
+        minutelyAlarms()
     }
 }
 
