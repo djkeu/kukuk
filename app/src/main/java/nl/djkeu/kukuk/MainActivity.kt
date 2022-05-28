@@ -48,9 +48,11 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
-        // Callback needed
-        // see: Dev/kotlin/callBack01.kt for code
         minutelyAlarm()
+
+        // Callback needed
+        // Coroutines
+
     }
 }
 
