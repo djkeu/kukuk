@@ -56,8 +56,7 @@ class MainActivity : AppCompatActivity() {
 
         fun runAlarms() = runBlocking {
             launch {
-                // playKukuOnce()  // This works
-                minutelyAlarms() // Doesn't work
+                minutelyAlarms() // No callback
             }
         }
 
