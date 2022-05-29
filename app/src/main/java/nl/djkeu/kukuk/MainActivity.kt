@@ -36,10 +36,12 @@ class MainActivity : AppCompatActivity() {
             )
         }
 
+
         val kukuButton: Button = findViewById(R.id.button)
         kukuButton.setOnClickListener {
             playShowKuku()
         }
+
 
         fun minutelyAlarms() {
             val getCurrentTime = Calendar.getInstance().time
@@ -53,6 +55,7 @@ class MainActivity : AppCompatActivity() {
                 playShowKuku()
                 }
             }
+
 
         fun runAlarms() = runBlocking {
 
