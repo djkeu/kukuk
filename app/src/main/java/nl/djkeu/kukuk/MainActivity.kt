@@ -48,6 +48,8 @@ class MainActivity : AppCompatActivity() {
             if (currentTime == "00") {
                 showKuku()
                 playKukuOnce()
+            } else {
+                playKukuOnce()
             }
         }
 
