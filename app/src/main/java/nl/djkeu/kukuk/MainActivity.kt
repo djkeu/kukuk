@@ -42,10 +42,10 @@ class MainActivity : AppCompatActivity() {
 
         fun minutelyAlarms() {
             val getCurrentTime = Calendar.getInstance().time
-            val formatter = SimpleDateFormat("ss", Locale.getDefault())
+            val formatter = SimpleDateFormat("mm", Locale.getDefault())
             val currentTime = formatter.format(getCurrentTime)
 
-            if (currentTime == "00") {
+            if (currentTime == "19") {
                 showKuku()
                 playKukuOnce()
             }
