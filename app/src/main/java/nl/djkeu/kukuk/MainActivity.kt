@@ -7,6 +7,8 @@ import android.os.Handler
 import android.os.Looper
 import android.widget.Button
 import android.widget.TextView
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.runBlocking
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -38,17 +40,25 @@ class MainActivity : AppCompatActivity() {
             showKuku()
         }
 
-        fun minutelyAlarm() {
+        fun minutelyAlarms() {
             val getCurrentTime = Calendar.getInstance().time
             val formatter = SimpleDateFormat("ss", Locale.getDefault())
             val currentTime = formatter.format(getCurrentTime)
 
             if (currentTime == "00") {
-                playKukuOnce()
+                showKuku()
             }
         }
 
-        minutelyAlarm()
+        fun runAlarms() = runBlocking {
+            repeat(1000) {
+                launch {
+                    minutelyAlarms()
+                }
+            }
+        }
+        runAlarms()
+        //minutelyAlarm()
 
         // Callback needed
         // Coroutines
