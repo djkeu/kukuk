@@ -47,22 +47,18 @@ class MainActivity : AppCompatActivity() {
 
             if (currentTime == "00") {
                 showKuku()
+                playKukuOnce()
             }
         }
 
         fun runAlarms() = runBlocking {
-            repeat(1000) {
-                launch {
-                    minutelyAlarms()
-                }
+            launch {
+                // playKukuOnce()  // This works
+                minutelyAlarms() // Doesn't work
             }
         }
+
         runAlarms()
-        //minutelyAlarm()
-
-        // Callback needed
-        // Coroutines
-
     }
 }
 
