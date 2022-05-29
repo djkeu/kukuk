@@ -18,26 +18,27 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        fun showKuku() {
+
+        fun playShowKuku() {
+            // Play kuku sound
+            val resId = resources.getIdentifier("keukuk", "raw", packageName)
+            val mediaPlayer = MediaPlayer.create(this, resId)
+
+            mediaPlayer.start()
+
+            // Show kuku
             val resultTextView: TextView = findViewById(R.id.textView2)
             resultTextView.text = getString(R.string.kukukTextView)
 
             Handler(Looper.getMainLooper()).postDelayed(
                 { resultTextView.text = "" },
-                1000
+                1200
             )
-        }
-
-        fun playKukuOnce() {
-            val resId = resources.getIdentifier("keukuk", "raw", packageName)
-            val mediaPlayer = MediaPlayer.create(this, resId)
-            mediaPlayer.start()
         }
 
         val kukuButton: Button = findViewById(R.id.button)
         kukuButton.setOnClickListener {
-            playKukuOnce()
-            showKuku()
+            playShowKuku()
         }
 
         fun minutelyAlarms() {
@@ -49,8 +50,7 @@ class MainActivity : AppCompatActivity() {
             val quarters = arrayOf("00", "10", "05", "15", "20", "25", "30", "35", "40", "45", "50", "55")
 
             if (currentTime in quarters) {
-                showKuku()
-                playKukuOnce()
+                playShowKuku()
                 }
             }
 
