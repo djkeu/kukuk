@@ -45,11 +45,14 @@ class MainActivity : AppCompatActivity() {
             val formatter = SimpleDateFormat("mm", Locale.getDefault())
             val currentTime = formatter.format(getCurrentTime)
 
-            if (currentTime == "19") {
+            // val quarters = arrayOf("00", "15", "30", "45")
+            val quarters = arrayOf("00", "10", "05", "15", "20", "25", "30", "35", "40", "45", "50", "55")
+
+            if (currentTime in quarters) {
                 showKuku()
                 playKukuOnce()
+                }
             }
-        }
 
         fun runAlarms() = runBlocking {
             launch {
