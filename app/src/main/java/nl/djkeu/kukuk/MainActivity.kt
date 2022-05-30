@@ -19,16 +19,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
 
-        val kukuButton: Button = findViewById(R.id.button)
-        kukuButton.setOnClickListener {
-            playShowKuku()
-        }
-        runAlarms()
-
-
-    }
-
-        private fun playShowKuku() {
+        fun playShowKuku() {
             // Play kuku sound
             val resId = resources.getIdentifier("keukuk", "raw", packageName)
             val mediaPlayer = MediaPlayer.create(this, resId)
@@ -46,7 +37,13 @@ class MainActivity : AppCompatActivity() {
         }
 
 
-        private fun minutelyAlarms() {
+        val kukuButton: Button = findViewById(R.id.button)
+        kukuButton.setOnClickListener {
+            playShowKuku()
+        }
+
+
+        fun minutelyAlarms() {
             val getCurrentTime = Calendar.getInstance().time
             val formatter = SimpleDateFormat("mm", Locale.getDefault())
             val currentTime = formatter.format(getCurrentTime)
@@ -60,8 +57,14 @@ class MainActivity : AppCompatActivity() {
             }
 
 
-        private fun runAlarms() {
-            minutelyAlarms()
+        fun runAlarms() = runBlocking {
+
+            launch {
+                minutelyAlarms() // No callback
             }
+        }
+
+        runAlarms()
+    }
 }
 
