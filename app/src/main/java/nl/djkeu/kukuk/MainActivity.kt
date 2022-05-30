@@ -18,11 +18,11 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-
         val kukuButton: Button = findViewById(R.id.button)
         kukuButton.setOnClickListener {
             playShowKuku()
         }
+
         runAlarms()
     }
 
@@ -49,17 +49,30 @@ class MainActivity : AppCompatActivity() {
             val formatter = SimpleDateFormat("mm", Locale.getDefault())
             val currentTime = formatter.format(getCurrentTime)
 
-            // val quarters = arrayOf("00", "15", "30", "45")
-            val quarters = arrayOf("00", "10", "05", "15", "20", "25", "30", "35", "40", "45", "50", "55")
+            val minutes = arrayOf("00", "05", "10", "20", "25", "35", "40", "50", "55")
 
-            if (currentTime in quarters) {
+            if (currentTime in minutes) {
                 playShowKuku()
                 }
             }
 
 
+        private fun quarterlyAlarms() {
+            val getCurrentTime = Calendar.getInstance().time
+            val formatter = SimpleDateFormat("mm", Locale.getDefault())
+            val currentTime = formatter.format(getCurrentTime)
+
+            val quarters = arrayOf("15", "30", "45")
+
+            if (currentTime in quarters) {
+                playShowKuku()
+            }
+        }
+
+
         private fun runAlarms() {
-                minutelyAlarms()
+            minutelyAlarms()
+            quarterlyAlarms()
             }
 
 }
