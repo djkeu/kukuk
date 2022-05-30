@@ -28,7 +28,7 @@ class MainActivity : AppCompatActivity() {
 
     }
 
-        fun playShowKuku() {
+        private fun playShowKuku() {
             // Play kuku sound
             val resId = resources.getIdentifier("keukuk", "raw", packageName)
             val mediaPlayer = MediaPlayer.create(this, resId)
@@ -46,7 +46,7 @@ class MainActivity : AppCompatActivity() {
         }
 
 
-        fun minutelyAlarms() {
+        private fun minutelyAlarms() {
             val getCurrentTime = Calendar.getInstance().time
             val formatter = SimpleDateFormat("mm", Locale.getDefault())
             val currentTime = formatter.format(getCurrentTime)
@@ -60,7 +60,7 @@ class MainActivity : AppCompatActivity() {
             }
 
 
-        fun runAlarms() = runBlocking {
+        private fun runAlarms() = runBlocking {
 
             launch {
                 minutelyAlarms() // No callback
