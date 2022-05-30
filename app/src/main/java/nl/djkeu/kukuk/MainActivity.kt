@@ -19,6 +19,13 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
 
+        val kukuButton: Button = findViewById(R.id.button)
+        kukuButton.setOnClickListener {
+            playShowKuku()
+        }
+        runAlarms()
+    }
+
         fun playShowKuku() {
             // Play kuku sound
             val resId = resources.getIdentifier("keukuk", "raw", packageName)
@@ -34,12 +41,6 @@ class MainActivity : AppCompatActivity() {
                 { resultTextView.text = "" },
                 1200
             )
-        }
-
-
-        val kukuButton: Button = findViewById(R.id.button)
-        kukuButton.setOnClickListener {
-            playShowKuku()
         }
 
 
@@ -64,7 +65,5 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
-        runAlarms()
-    }
 }
 
