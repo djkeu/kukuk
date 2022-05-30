@@ -18,13 +18,16 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        // Button for testing purposes, to be removed when things work
         val kukuButton: Button = findViewById(R.id.button)
         kukuButton.setOnClickListener {
             playShowKuku()
         }
 
+        // Run all alarms defined in the functions below
         runAlarms()
     }
+
 
         private fun playShowKuku() {
             // Play kuku sound
@@ -45,6 +48,7 @@ class MainActivity : AppCompatActivity() {
 
 
         private fun minutelyAlarms() {
+            // For testing, to be removed when things work
             val getCurrentTime = Calendar.getInstance().time
             val formatter = SimpleDateFormat("mm", Locale.getDefault())
             val currentTime = formatter.format(getCurrentTime)
