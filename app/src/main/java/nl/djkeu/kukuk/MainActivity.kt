@@ -57,11 +57,8 @@ class MainActivity : AppCompatActivity() {
             }
 
 
-        fun runAlarms() = runBlocking {
-
-            launch {
-                minutelyAlarms() // No callback
-            }
+        fun runAlarms() {
+            minutelyAlarms() // No callback
         }
 
         runAlarms()
