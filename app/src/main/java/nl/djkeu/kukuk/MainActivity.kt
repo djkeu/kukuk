@@ -48,12 +48,13 @@ class MainActivity : AppCompatActivity() {
 
 
         private fun minutelyAlarms() {
-            // For testing, to be removed when things work
+            // For testing, to be removed when the alarms work
             val getCurrentTime = Calendar.getInstance().time
-            val formatter = SimpleDateFormat("mm", Locale.getDefault())
+            val formatter = SimpleDateFormat("mm:ss", Locale.getDefault())
             val currentTime = formatter.format(getCurrentTime)
 
-            val minutes = arrayOf("00", "05", "10", "20", "25", "35", "40", "50", "55")
+            val minutes = arrayOf("00:00", "05:00", "10:00", "20:00",
+                        "25:00", "35:00", "40:00", "50:00", "55:00")
 
             if (currentTime in minutes) {
                 playShowKuku()
