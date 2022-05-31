@@ -21,7 +21,7 @@ class MainActivity : AppCompatActivity() {
         // Button for testing purposes, to be removed when things work
         val kukuButton: Button = findViewById(R.id.button)
         kukuButton.setOnClickListener {
-            playShowKukuOnce()
+            kukuOnce()
         }
 
         // Run all alarms defined in the functions below
@@ -29,7 +29,7 @@ class MainActivity : AppCompatActivity() {
     }
 
 
-        private fun playShowKukuOnce() {
+        private fun kukuOnce() {
             // Play kuku sound
             val resId = resources.getIdentifier("keukuk", "raw", packageName)
             val mediaPlayer = MediaPlayer.create(this, resId)
@@ -57,7 +57,7 @@ class MainActivity : AppCompatActivity() {
                         "25:00", "35:00", "40:00", "50:00", "55:00")
 
             if (currentTime in minutes) {
-                playShowKukuOnce()
+                kukuOnce()
             }
         }
 
@@ -70,7 +70,7 @@ class MainActivity : AppCompatActivity() {
             val quarters = arrayOf("15:00", "30:00", "45:00")
 
             if (currentTime in quarters) {
-                playShowKukuOnce()
+                kukuOnce()
             }
         }
 
