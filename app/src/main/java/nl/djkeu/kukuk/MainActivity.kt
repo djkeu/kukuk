@@ -63,10 +63,10 @@ class MainActivity : AppCompatActivity() {
 
         private fun quarterlyAlarms() {
             val getCurrentTime = Calendar.getInstance().time
-            val formatter = SimpleDateFormat("mm", Locale.getDefault())
+            val formatter = SimpleDateFormat("mm:ss", Locale.getDefault())
             val currentTime = formatter.format(getCurrentTime)
 
-            val quarters = arrayOf("15", "30", "45")
+            val quarters = arrayOf("15:00", "30:00", "45:00")
 
             if (currentTime in quarters) {
                 playShowKuku()
