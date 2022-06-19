@@ -10,7 +10,6 @@ import android.widget.TextView
 import kotlinx.coroutines.runBlocking
 import java.text.SimpleDateFormat
 import java.util.*
-import kotlin.text.Typography.times
 
 
 class MainActivity : AppCompatActivity() {
@@ -30,7 +29,6 @@ class MainActivity : AppCompatActivity() {
             minutelyAlarms()
             quarterlyAlarms()
             hourlyAlarms()
-            //kukuOnce()
         }
 
         /*
