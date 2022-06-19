@@ -31,7 +31,8 @@ class MainActivity : AppCompatActivity() {
             //kukuOnce()
         }
 
-        /* Crashes the app
+        /*
+        // Crashes the app
         Timer().scheduleAtFixedRate(object : TimerTask() {
             override fun run() {
                 kukuOnce()
@@ -39,7 +40,6 @@ class MainActivity : AppCompatActivity() {
         }, 5000, 5000)
         */
 }
-
 
 
         private fun kukuOnce() {
@@ -86,6 +86,7 @@ class MainActivity : AppCompatActivity() {
                 kukuOnce()
             }
         }
+
 
         /*
         // Obsolete, using direct calls to the ...Alarms() instead
