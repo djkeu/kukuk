@@ -75,11 +75,11 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
-
+    /*
         private fun runAlarms() {
             minutelyAlarms()
             // quarterlyAlarms()
         }
-
+    */
 }
 
