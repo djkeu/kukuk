@@ -60,6 +60,14 @@ class MainActivity : AppCompatActivity() {
         }
 
 
+        // Play and show kuku multiple times
+        fun kukuTimes(times: Int) {
+            for (i in 1..times) {
+                kukuOnce()
+            }
+        }
+
+
         private fun minutelyAlarms() {
             // For testing, to be removed when the alarms work
             val getCurrentTime = Calendar.getInstance().time
