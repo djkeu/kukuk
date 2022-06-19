@@ -87,11 +87,12 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
-    /*
+        /*
+        // Obsolete, using direct calls to the ...Alarms() instead
         private fun runAlarms() {
             minutelyAlarms()
             quarterlyAlarms()
         }
-    */
+        */
 }
 
