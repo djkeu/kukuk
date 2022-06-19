@@ -28,9 +28,18 @@ class MainActivity : AppCompatActivity() {
         // Run all alarms defined in the functions below
         runBlocking {
             minutelyAlarms()
-            kukuOnce()
+            //kukuOnce()
         }
-    }
+
+        /* Crashes the app
+        Timer().scheduleAtFixedRate(object : TimerTask() {
+            override fun run() {
+                kukuOnce()
+            }
+        }, 5000, 5000)
+        */
+}
+
 
 
         private fun kukuOnce() {
