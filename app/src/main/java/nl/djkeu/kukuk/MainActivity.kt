@@ -19,7 +19,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        // Button for testing purposes, to be removed when things work
+        // Button for testing purposes, to be removed when coroutines work
         val kukuButton: Button = findViewById(R.id.button)
         kukuButton.setOnClickListener {
             kukuOnce()
@@ -78,7 +78,7 @@ class MainActivity : AppCompatActivity() {
     /*
         private fun runAlarms() {
             minutelyAlarms()
-            // quarterlyAlarms()
+            quarterlyAlarms()
         }
     */
 }
