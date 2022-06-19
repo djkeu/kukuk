@@ -27,7 +27,8 @@ class MainActivity : AppCompatActivity() {
 
         // Run all alarms defined in the functions below
         runBlocking {
-            minutelyAlarms()
+            // minutelyAlarms()
+            kukuOnce()
         }
     }
 
