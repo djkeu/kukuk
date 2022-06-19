@@ -42,6 +42,7 @@ class MainActivity : AppCompatActivity() {
 }
 
 
+        // Play and show kuku once
         private fun kukuOnce() {
             // Play kuku sound
             val resId = resources.getIdentifier("keukuk", "raw", packageName)
