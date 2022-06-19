@@ -96,6 +96,10 @@ class MainActivity : AppCompatActivity() {
         }
 
 
+        fun hourlyAlarms() {
+            // Code
+        }
+
         /*
         // Obsolete, using direct calls to the ...Alarms() instead
         private fun runAlarms() {
