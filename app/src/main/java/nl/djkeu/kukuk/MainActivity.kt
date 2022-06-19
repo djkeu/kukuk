@@ -26,7 +26,9 @@ class MainActivity : AppCompatActivity() {
         }
 
         // Run all alarms defined in the functions below
-        minutelyAlarms()
+        GlobalScope.launch {
+            minutelyAlarms()
+        }
     }
 
 
