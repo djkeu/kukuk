@@ -32,6 +32,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         // Crashes the app
+        /*
         Timer().scheduleAtFixedRate(object : TimerTask() {
             override fun run() {
             // minutelyAlarms()
@@ -39,6 +40,7 @@ class MainActivity : AppCompatActivity() {
             hourlyAlarms()
             }
         }, 5000, 5000)
+        */
 }
 
 
