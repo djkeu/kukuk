@@ -10,6 +10,7 @@ import android.widget.TextView
 import kotlinx.coroutines.runBlocking
 import java.text.SimpleDateFormat
 import java.util.*
+import kotlin.text.Typography.times
 
 
 class MainActivity : AppCompatActivity() {
@@ -28,6 +29,7 @@ class MainActivity : AppCompatActivity() {
             // Not looping
             minutelyAlarms()
             quarterlyAlarms()
+            hourlyAlarms()
             //kukuOnce()
         }
 
@@ -61,7 +63,7 @@ class MainActivity : AppCompatActivity() {
 
 
         // Play and show kuku multiple times
-        fun kukuTimes(times: Int) {
+        private fun kukuTimes(times: Int) {
             for (i in 1..times) {
                 kukuOnce()
             }
@@ -96,9 +98,33 @@ class MainActivity : AppCompatActivity() {
         }
 
 
-        fun hourlyAlarms() {
-            // Code
+        private fun hourlyAlarms() {
+            val getCurrentTime = Calendar.getInstance().time
+            val formatter = SimpleDateFormat("hh:mm:ss", Locale.getDefault())
+            val currentTime = formatter.format(getCurrentTime)
+
+
+            for (i in 1..24) {
+                if (i < 13) {
+                    val formattedHour = "%2d".format(i)
+                    val hour = "${formattedHour}:00:00"
+
+                    if (hour == currentTime) {
+                        kukuTimes(i)
+                    }
+                } else {
+                    val times = i - 12
+                    val formattedHour = "%2d".format(times)
+                    val hour = "${formattedHour}:00:00"
+
+                    if (hour == currentTime) {
+                        kukuTimes(times)
+                    }
+                }
+
+            }
         }
+
 
         /*
         // Obsolete, using direct calls to the ...Alarms() instead
