@@ -29,6 +29,7 @@ class MainActivity : AppCompatActivity() {
         runBlocking {
             // Not looping
             minutelyAlarms()
+            quarterlyAlarms()
             //kukuOnce()
         }
 
