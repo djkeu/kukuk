@@ -120,7 +120,6 @@ class MainActivity : AppCompatActivity() {
                         kukuTimes(times)
                     }
                 }
-
             }
         }
 }
