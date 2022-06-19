@@ -23,22 +23,22 @@ class MainActivity : AppCompatActivity() {
             kukuOnce()
         }
 
-        // Run all alarms defined in the functions below
+        // Loop not working
+        // Run the alarms
         runBlocking {
-            // Not looping
             minutelyAlarms()
             quarterlyAlarms()
             hourlyAlarms()
         }
 
-        /*
         // Crashes the app
         Timer().scheduleAtFixedRate(object : TimerTask() {
             override fun run() {
-                kukuOnce()
+            // minutelyAlarms()
+            quarterlyAlarms()
+            hourlyAlarms()
             }
         }, 5000, 5000)
-        */
 }
 
 
