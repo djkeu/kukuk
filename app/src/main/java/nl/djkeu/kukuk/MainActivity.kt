@@ -26,7 +26,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         // Run all alarms defined in the functions below
-        GlobalScope.launch {
+        runBlocking {
             minutelyAlarms()
             kukuOnce()
         }
