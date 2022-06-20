@@ -39,7 +39,6 @@ class MainActivity : AppCompatActivity() {
             // Play kuku sound
             val resId = resources.getIdentifier("keukuk", "raw", packageName)
             val mediaPlayer = MediaPlayer.create(this, resId)
-
             mediaPlayer.start()
 
             // Show kuku
@@ -52,7 +51,6 @@ class MainActivity : AppCompatActivity() {
             )
         }
 
-
         // Play and show kuku multiple times
         private fun kukuTimes(times: Int) {
             for (i in 1..times) {
@@ -62,17 +60,17 @@ class MainActivity : AppCompatActivity() {
         }
 
 
-    private fun quarterlyAlarms() {
-            val getCurrentTime = Calendar.getInstance().time
-            val formatter = SimpleDateFormat("mm:ss", Locale.getDefault())
-            val currentTime = formatter.format(getCurrentTime)
+        private fun quarterlyAlarms() {
+                val getCurrentTime = Calendar.getInstance().time
+                val formatter = SimpleDateFormat("mm:ss", Locale.getDefault())
+                val currentTime = formatter.format(getCurrentTime)
 
-            val quarters = arrayOf("15:00", "30:00", "45:00")
+                val quarters = arrayOf("15:00", "30:00", "45:00")
 
-            if (currentTime in quarters) {
-                kukuOnce()
+                if (currentTime in quarters) {
+                    kukuOnce()
+                }
             }
-        }
 
 
         private fun hourlyAlarms() {
