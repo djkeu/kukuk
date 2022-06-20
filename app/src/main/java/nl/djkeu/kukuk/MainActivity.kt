@@ -5,9 +5,8 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
-import android.widget.Button
 import android.widget.TextView
-import kotlinx.coroutines.runBlocking
+import kotlinx.coroutines.*
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -17,18 +16,22 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        // Button for testing purposes, to be removed when coroutines work
-        val kukuButton: Button = findViewById(R.id.button)
-        kukuButton.setOnClickListener {
-            kukuOnce()
+        suspend fun runAlarms() = withContext(Dispatchers.IO) {
+            launch {
+                    quarterlyAlarms()
+                    delay(1000)
+            }
+
+            launch {
+                    hourlyAlarms()
+                    delay(1000)
+            }
         }
 
-        // Loop not working
-        // Run the alarms
         runBlocking {
-            minutelyAlarms()
-            quarterlyAlarms()
-            hourlyAlarms()
+           while (true) {
+               runAlarms()
+           }
         }
 }
 
@@ -56,26 +59,12 @@ class MainActivity : AppCompatActivity() {
         private fun kukuTimes(times: Int) {
             for (i in 1..times) {
                 kukuOnce()
+                Thread.sleep(1000)
             }
         }
 
 
-        private fun minutelyAlarms() {
-            // For testing, to be removed when the alarms work
-            val getCurrentTime = Calendar.getInstance().time
-            val formatter = SimpleDateFormat("ss", Locale.getDefault())
-            val currentTime = formatter.format(getCurrentTime)
-
-            val minutes = arrayOf("00", "05", "10", "20",
-                        "25", "35", "40", "50", "55")
-
-            if (currentTime in minutes) {
-                kukuOnce()
-            }
-        }
-
-
-        private fun quarterlyAlarms() {
+    private fun quarterlyAlarms() {
             val getCurrentTime = Calendar.getInstance().time
             val formatter = SimpleDateFormat("mm:ss", Locale.getDefault())
             val currentTime = formatter.format(getCurrentTime)
@@ -96,7 +85,7 @@ class MainActivity : AppCompatActivity() {
 
             for (i in 1..24) {
                 if (i < 13) {
-                    val formattedHour = "%2d".format(i)
+                    val formattedHour = String.format("%02d", i)
                     val hour = "${formattedHour}:00:00"
 
                     if (hour == currentTime) {
@@ -104,7 +93,7 @@ class MainActivity : AppCompatActivity() {
                     }
                 } else {
                     val times = i - 12
-                    val formattedHour = "%2d".format(times)
+                    val formattedHour = String.format("%02d", times)
                     val hour = "${formattedHour}:00:00"
 
                     if (hour == currentTime) {
