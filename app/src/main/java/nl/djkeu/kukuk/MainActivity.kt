@@ -30,17 +30,6 @@ class MainActivity : AppCompatActivity() {
             quarterlyAlarms()
             hourlyAlarms()
         }
-
-        // Crashes the app
-        /*
-        Timer().scheduleAtFixedRate(object : TimerTask() {
-            override fun run() {
-            // minutelyAlarms()
-            quarterlyAlarms()
-            hourlyAlarms()
-            }
-        }, 5000, 5000)
-        */
 }
 
 
