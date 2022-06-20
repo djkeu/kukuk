@@ -48,20 +48,6 @@
             app:layout_constraintTop_toTopOf="parent"
             tools:targetApi="s" />
 
-        <Button
-            android:id="@+id/button"
-            android:layout_width="142dp"
-            android:layout_height="91dp"
-            android:layout_marginEnd="24dp"
-            android:layout_marginBottom="24dp"
-            android:backgroundTint="@android:color/transparent"
-            android:backgroundTintMode="add"
-            android:text="@string/kukukButtonText"
-            android:textColor="@color/design_default_color_on_primary"
-            android:textSize="20sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
-
         <!-- Kukuk logo -->
         <TextView
             android:id="@+id/textView"
@@ -84,7 +70,7 @@
             android:textColor="@color/design_default_color_on_primary"
             android:textSize="60sp"
             android:textStyle="bold|italic"
-            app:layout_constraintBottom_toTopOf="@id/button"
+            app:layout_constraintBottom_toTopOf="@id/textView"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
