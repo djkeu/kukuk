@@ -18,8 +18,13 @@ class MainActivity : AppCompatActivity() {
 
         suspend fun runAlarms() = withContext(Dispatchers.IO) {
             launch {
-                    quarterlyAlarms()
+                    minutelyAlarms()
                     delay(1000)
+            }
+
+            launch {
+                quarterlyAlarms()
+                delay(1000)
             }
 
             launch {
