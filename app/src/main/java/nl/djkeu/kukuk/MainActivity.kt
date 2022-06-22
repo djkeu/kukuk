@@ -16,15 +16,22 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        suspend fun runAlarms() = withContext(Dispatchers.IO) {
-            launch {
-                    minutelyAlarms()
+        val scope = MainScope() // could also use an other scope such as viewModelScope if available
+        var job: Job? = null
+
+        fun runAlarms()  {
+            fun stopAlarms() {
+                job?.cancel()
+                job = null
             }
-            launch {
-                quarterlyAlarms()
-            }
-            launch {
+
+            stopAlarms()
+            job = scope.launch {
+                while (true) {
+                    quarterlyAlarms()
                     hourlyAlarms()
+                    delay(1000)
+                }
             }
         }
 
@@ -32,6 +39,7 @@ class MainActivity : AppCompatActivity() {
             runAlarms()
             delay(1000)
         }
+
 }
 
 
