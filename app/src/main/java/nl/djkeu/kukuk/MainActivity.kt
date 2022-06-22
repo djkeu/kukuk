@@ -128,31 +128,6 @@ class MainActivity : AppCompatActivity() {
         }
 
 
-        /* Backup
-        private fun minutelyAlarms() {
-            // For testing, to be removed when the alarms work
-            val getCurrentTime = Calendar.getInstance().time
-            val formatter = SimpleDateFormat("ss", Locale.getDefault())
-            val currentTime = formatter.format(getCurrentTime)
-
-            // val minutes = arrayOf("05", "10", "20",
-            //            "25", "35", "40", "50", "55")
-
-            val minutes = arrayOf("05", "15", "25",
-                "35", "45", "55")
-
-            // val minutes = arrayOf("10", "25",
-            //    "40", "55")
-
-            if (currentTime in minutes) {
-                kukuOnce()
-            }
-        }
-        */
-
-
-
-
         private fun quarterlyAlarms() {
                     val getCurrentTime = Calendar.getInstance().time
                     val formatter = SimpleDateFormat("mm:ss", Locale.getDefault())
