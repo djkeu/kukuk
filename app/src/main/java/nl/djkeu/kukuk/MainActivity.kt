@@ -20,22 +20,16 @@ class MainActivity : AppCompatActivity() {
             launch {
                     minutelyAlarms()
             }
-
             launch {
                 quarterlyAlarms()
             }
-
             launch {
                     hourlyAlarms()
             }
         }
 
         runBlocking {
-            delay(1000)
-            while (true) {
-                runAlarms()
-                delay(1000)
-            }
+            runAlarms()
             delay(1000)
         }
 }
