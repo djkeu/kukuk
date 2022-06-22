@@ -47,6 +47,7 @@ class MainActivity : AppCompatActivity() {
         val resId = resources.getIdentifier("keukuk", "raw", packageName)
         val mediaPlayer = MediaPlayer.create(this, resId)
         mediaPlayer.start()
+        mediaPlayer.pause()
 
         // Show kuku
         val resultTextView: TextView = findViewById(R.id.textView2)
