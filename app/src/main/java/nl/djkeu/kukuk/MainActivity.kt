@@ -116,7 +116,7 @@ class MainActivity : AppCompatActivity() {
                         kukuTimes(times)
                     }
                 } else {
-                    val times = i - 40
+                    val times = i - 50
                     val formattedMinute = String.format("%02d", i)
                     val hour = "${formattedMinute}:00"
 
