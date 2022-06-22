@@ -39,70 +39,71 @@ class MainActivity : AppCompatActivity() {
             runAlarms()
         }
 
-}
+    }
 
+    // Play and show kuku once
+    private fun kukuOnce() {
+        // Play kuku sound
+        val resId = resources.getIdentifier("keukuk", "raw", packageName)
+        val mediaPlayer = MediaPlayer.create(this, resId)
+        mediaPlayer.start()
 
-        // Play and show kuku once
-        private fun kukuOnce() {
-            // Play kuku sound
-            val resId = resources.getIdentifier("keukuk", "raw", packageName)
-            val mediaPlayer = MediaPlayer.create(this, resId)
-            mediaPlayer.start()
+        // Show kuku
+        val resultTextView: TextView = findViewById(R.id.textView2)
+        resultTextView.text = getString(R.string.kukukTextView)
 
-            // Show kuku
-            val resultTextView: TextView = findViewById(R.id.textView2)
-            resultTextView.text = getString(R.string.kukukTextView)
+        Handler(Looper.getMainLooper()).postDelayed(
+            { resultTextView.text = "" },
+            1000
+        )
+    }
 
-            Handler(Looper.getMainLooper()).postDelayed(
-                { resultTextView.text = "" },
-                1000
-            )
+    // Play and show kuku multiple times
+    private fun kukuTimes(times: Int) {
+        for (i in 1..times) {
+            kukuOnce()
+            Thread.sleep(1000)
         }
+    }
 
-        // Play and show kuku multiple times
-        private fun kukuTimes(times: Int) {
-            for (i in 1..times) {
-                kukuOnce()
-                Thread.sleep(1000)
-            }
-        }
+    // Call kukuOnce() every 15 minutes
+    private fun quarterlyAlarms() {
+                val getCurrentTime = Calendar.getInstance().time
+                val formatter = SimpleDateFormat("mm:ss", Locale.getDefault())
+                val currentTime = formatter.format(getCurrentTime)
 
-        private fun quarterlyAlarms() {
-                    val getCurrentTime = Calendar.getInstance().time
-                    val formatter = SimpleDateFormat("mm:ss", Locale.getDefault())
-                    val currentTime = formatter.format(getCurrentTime)
+                val quarters = arrayOf("15:00", "30:00", "45:00")
 
-                    val quarters = arrayOf("15:00", "30:00", "45:00")
-
-                    if (currentTime in quarters) {
-                        kukuOnce()
-                    }
-                }
-
-        private fun hourlyAlarms() {
-            val getCurrentTime = Calendar.getInstance().time
-            val formatter = SimpleDateFormat("hh:mm:ss", Locale.getDefault())
-            val currentTime = formatter.format(getCurrentTime)
-
-
-            for (i in 1..24) {
-                if (i < 13) {
-                    val formattedHour = String.format("%02d", i)
-                    val hour = "${formattedHour}:00:00"
-
-                    if (hour == currentTime) {
-                        kukuTimes(i)
-                    }
-                } else {
-                    val times = i - 12
-                    val formattedHour = String.format("%02d", times)
-                    val hour = "${formattedHour}:00:00"
-
-                    if (hour == currentTime) {
-                        kukuTimes(times)
-                    }
+                if (currentTime in quarters) {
+                    kukuOnce()
                 }
             }
+
+    // Call kukuTimes every hour
+    private fun hourlyAlarms() {
+        val getCurrentTime = Calendar.getInstance().time
+        val formatter = SimpleDateFormat("hh:mm:ss", Locale.getDefault())
+        val currentTime = formatter.format(getCurrentTime)
+
+
+        for (i in 1..24) {
+            if (i < 13) {
+                val formattedHour = String.format("%02d", i)
+                val hour = "${formattedHour}:00:00"
+
+                if (hour == currentTime) {
+                    kukuTimes(i)
+                }
+            } else {
+                val times = i - 12
+                val formattedHour = String.format("%02d", times)
+                val hour = "${formattedHour}:00:00"
+
+                if (hour == currentTime) {
+                    kukuTimes(times)
+                }
+            }
         }
+    }
 }
 
