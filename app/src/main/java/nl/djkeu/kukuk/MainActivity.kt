@@ -17,12 +17,10 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         suspend fun runAlarms() = withContext(Dispatchers.IO) {
-            /*
             launch {
                     minutelyAlarms()
                     delay(1000)
             }
-            */
 
             launch {
                 quarterlyAlarms()
@@ -41,8 +39,6 @@ class MainActivity : AppCompatActivity() {
             }
         }
 }
-
-
 
 
         // Play and show kuku once
