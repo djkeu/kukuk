@@ -67,67 +67,6 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
-        // Refactor
-        private fun minutelyAlarms() {
-            // For testing, to be removed when the alarms work
-            val getCurrentTime = Calendar.getInstance().time
-            val formatter = SimpleDateFormat("mm:ss", Locale.getDefault())
-            val currentTime = formatter.format(getCurrentTime)
-
-            for (i in 1..59) {
-                if (i < 11) {
-                    val formattedMinute = String.format("%02d", i)
-                    val hour = "${formattedMinute}:00"
-
-                    if (hour == currentTime) {
-                        kukuTimes(i)
-                    }
-                } else if (i < 21) {
-                    val times = i - 10
-                    val formattedMinute = String.format("%02d", i)
-                    val hour = "${formattedMinute}:00"
-
-                    if (hour == currentTime) {
-                        kukuTimes(times)
-                    }
-                } else if (i < 31) {
-                    val times = i - 20
-                    val formattedMinute = String.format("%02d", i)
-                    val hour = "${formattedMinute}:00"
-
-                    if (hour == currentTime) {
-                        kukuTimes(times)
-                    }
-                } else if (i < 41) {
-                    val times = i - 30
-                    val formattedMinute = String.format("%02d", i)
-                    val hour = "${formattedMinute}:00"
-
-                    if (hour == currentTime) {
-                        kukuTimes(times)
-                    }
-                } else if (i < 51) {
-                    val times = i - 40
-                    val formattedMinute = String.format("%02d", i)
-                    val hour = "${formattedMinute}:00"
-
-                    if (hour == currentTime) {
-                        kukuTimes(times)
-                    }
-                } else {
-                    val times = i - 50
-                    val formattedMinute = String.format("%02d", i)
-                    val hour = "${formattedMinute}:00"
-
-                    if (hour == currentTime) {
-                        kukuTimes(times)
-                    }
-                }
-
-            }
-        }
-
-
         private fun quarterlyAlarms() {
                     val getCurrentTime = Calendar.getInstance().time
                     val formatter = SimpleDateFormat("mm:ss", Locale.getDefault())
@@ -139,7 +78,6 @@ class MainActivity : AppCompatActivity() {
                         kukuOnce()
                     }
                 }
-
 
         private fun hourlyAlarms() {
             val getCurrentTime = Calendar.getInstance().time
