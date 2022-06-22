@@ -72,10 +72,7 @@ class MainActivity : AppCompatActivity() {
         val formatter = SimpleDateFormat("mm:ss", Locale.getDefault())
         val currentTime = formatter.format(getCurrentTime)
 
-        // val quarters = arrayOf( "15:00", "30:00", "45:00" )
-        val quarters = arrayOf( "05:00", "10:00", "15:00", "20:00", "25:00",
-                        "30:00", "35:00", "40:00", "45:00", "50:00", "55:00" )
-
+        val quarters = arrayOf( "15:00", "30:00", "45:00" )
 
         if (currentTime in quarters) {
             kukuOnce()
