@@ -34,7 +34,9 @@ class MainActivity : AppCompatActivity() {
         }
 
         runBlocking {
-               runAlarms()
+            while (true) {
+                runAlarms()
+            }
         }
 }
 
