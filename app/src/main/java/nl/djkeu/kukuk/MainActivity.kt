@@ -56,7 +56,7 @@ class MainActivity : AppCompatActivity() {
 
             Handler(Looper.getMainLooper()).postDelayed(
                 { resultTextView.text = "" },
-                1200
+                1000
             )
         }
 
