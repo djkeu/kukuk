@@ -30,7 +30,7 @@ class MainActivity : AppCompatActivity() {
                 while (true) {
                     quarterlyAlarms()
                     hourlyAlarms()
-                    delay(1000)
+                    delay(300)
                 }
             }
         }
