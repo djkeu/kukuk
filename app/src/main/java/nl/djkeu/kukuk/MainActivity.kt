@@ -37,7 +37,6 @@ class MainActivity : AppCompatActivity() {
 
         runBlocking {
             runAlarms()
-            delay(1000)
         }
 
 }
