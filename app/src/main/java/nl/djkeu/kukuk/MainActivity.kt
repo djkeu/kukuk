@@ -16,7 +16,6 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        /*
         suspend fun runAlarms() = withContext(Dispatchers.IO) {
             launch {
                     minutelyAlarms()
@@ -37,8 +36,7 @@ class MainActivity : AppCompatActivity() {
         runBlocking {
                runAlarms()
         }
-        */
-}       
+}
 
 
 
