@@ -63,7 +63,7 @@ class MainActivity : AppCompatActivity() {
     private fun kukuTimes(times: Int) {
         for (i in 1..times) {
             kukuOnce()
-            Thread.sleep(1000)
+            // Thread.sleep(1000)
         }
     }
 
