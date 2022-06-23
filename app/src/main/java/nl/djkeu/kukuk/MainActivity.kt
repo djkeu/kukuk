@@ -9,6 +9,7 @@ import android.widget.TextView
 import kotlinx.coroutines.*
 import java.text.SimpleDateFormat
 import java.util.*
+import kotlin.text.Typography.times
 
 
 class MainActivity : AppCompatActivity() {
@@ -30,6 +31,7 @@ class MainActivity : AppCompatActivity() {
                 while (true) {
                     quarterlyAlarms()
                     hourlyAlarms()
+                    // minutelyAlarms()
                     delay(1000)
                 }
             }
@@ -87,22 +89,21 @@ class MainActivity : AppCompatActivity() {
 
 
         for (i in 1..24) {
-            if (i < 13) {
-                val times = i - 0
+            fun checkHours(times: Int) {
                 val formattedHour = String.format("%02d", i)
                 val hour = "${formattedHour}:00:00"
 
                 if (hour == currentTime) {
                     kukuTimes(times)
                 }
+            }
+
+            if (i < 13) {
+                val times = i - 0
+                checkHours(times)
             } else {
                 val times = i - 12
-                val formattedHour = String.format("%02d", times)
-                val hour = "${formattedHour}:00:00"
-
-                if (hour == currentTime) {
-                    kukuTimes(times)
-                }
+                checkHours(times)
             }
         }
     }
