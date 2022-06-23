@@ -88,11 +88,12 @@ class MainActivity : AppCompatActivity() {
 
         for (i in 1..24) {
             if (i < 13) {
+                val times = i - 0
                 val formattedHour = String.format("%02d", i)
                 val hour = "${formattedHour}:00:00"
 
                 if (hour == currentTime) {
-                    kukuTimes(i)
+                    kukuTimes(times)
                 }
             } else {
                 val times = i - 12
