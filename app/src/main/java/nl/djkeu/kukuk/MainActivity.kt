@@ -43,15 +43,15 @@ class MainActivity : AppCompatActivity() {
 
     // Play and show kuku once
     private fun kukuOnce() {
-        // Play kuku sound
-        val resId = resources.getIdentifier("keukuk", "raw", packageName)
-        val mediaPlayer = MediaPlayer.create(this, resId)
-        mediaPlayer.start()
+        // Set kuku sound
+        val resourceId = resources.getIdentifier("keukuk", "raw", packageName)
+        val kukuPlayer = MediaPlayer.create(this, resourceId)
 
         // Show kuku
         val resultTextView: TextView = findViewById(R.id.textView2)
         resultTextView.text = getString(R.string.kukukTextView)
 
+        kukuPlayer.start()
         Handler(Looper.getMainLooper()).postDelayed(
             { resultTextView.text = "" },
             1200
