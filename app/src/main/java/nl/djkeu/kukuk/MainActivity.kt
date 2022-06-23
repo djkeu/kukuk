@@ -96,13 +96,12 @@ class MainActivity : AppCompatActivity() {
                 }
             }
 
-            if (i < 13) {
-                val times = i - 0
-                checkHours(times)
+            val times = if (i < 13) {
+                i - 0
             } else {
-                val times = i - 12
-                checkHours(times)
+                i - 12
             }
+            checkHours(times)
         }
     }
 }
