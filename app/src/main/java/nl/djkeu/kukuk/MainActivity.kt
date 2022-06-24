@@ -78,7 +78,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    // Call kukuOnce() every 15 minutes
+    // Kuku every 15 minutes
     private fun quarterlyAlarms() {
         val getCurrentTime = Calendar.getInstance().time
         val formatter = SimpleDateFormat("mm:ss", Locale.getDefault())
