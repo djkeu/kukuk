@@ -1,11 +1,13 @@
 package nl.djkeu.kukuk
 
+import android.content.Context
 import android.media.MediaPlayer
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import android.widget.TextView
+import androidx.annotation.RawRes
 import kotlinx.coroutines.*
 import java.text.SimpleDateFormat
 import java.util.*
@@ -64,10 +66,31 @@ class MainActivity : AppCompatActivity() {
 
     // Play kuku sound once
     private fun kukuSoundOnce() {
-        // Set kuku sound
+
+        // https://medium.com/androiddevelopers/deep-dive-mediaplayer-best-practices-feb4d15a66f5
+        // Not working correctly (yet); UI Freezing, sound not waiting with multiple kuku's
+        /*
+        val context: Context = this
+        val kukuPlayer = MediaPlayer().apply {
+            setOnPreparedListener { start() }
+            setOnCompletionListener { reset() }
+        }
+
+        fun playSound(@RawRes rawResId: Int) {
+            val assetFileDescriptor = context.resources.openRawResourceFd(rawResId) ?: return
+                kukuPlayer.run {
+                    reset()
+                    setDataSource(assetFileDescriptor.fileDescriptor, assetFileDescriptor.startOffset, assetFileDescriptor.declaredLength)
+                    prepareAsync()
+                }
+        }
+
+        playSound(R.raw.keukuk)
+        */
+
+        // Set kuku sound, this method freezes Ui: (almost) no kukuText
         val resourceId = resources.getIdentifier("keukuk", "raw", packageName)
         val kukuPlayer = MediaPlayer.create(this, resourceId)
-
         kukuPlayer.start()
     }
 
