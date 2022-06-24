@@ -1,13 +1,11 @@
 package nl.djkeu.kukuk
 
-import android.content.Context
 import android.media.MediaPlayer
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import android.widget.TextView
-import androidx.annotation.RawRes
 import kotlinx.coroutines.*
 import java.text.SimpleDateFormat
 import java.util.*
@@ -31,8 +29,8 @@ class MainActivity : AppCompatActivity() {
             stopAlarms()
             job = scope.launch {
                 while (true) {
-                    // quarterlyAlarms()
-                    // hourlyAlarms()
+                    //quarterlyAlarms()
+                    //hourlyAlarms()
                     minutelyAlarms()
                     delay(1000)
                 }
