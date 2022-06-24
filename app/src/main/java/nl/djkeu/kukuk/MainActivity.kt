@@ -48,11 +48,15 @@ class MainActivity : AppCompatActivity() {
         val resourceId = resources.getIdentifier("keukuk", "raw", packageName)
         val kukuPlayer = MediaPlayer.create(this, resourceId)
 
-        // Show kuku
+        // Show kuku text
         val resultTextView: TextView = findViewById(R.id.textView2)
         resultTextView.text = getString(R.string.kukukTextView)
 
+        // Play kuku sound
         kukuPlayer.start()
+        Thread.sleep(1000)
+
+        // Hide kuku text
         Handler(Looper.getMainLooper()).postDelayed(
             { resultTextView.text = "" },
             1200
@@ -63,7 +67,6 @@ class MainActivity : AppCompatActivity() {
     private fun kukuTimes(times: Int) {
         for (i in 1..times) {
             kukuOnce()
-            Thread.sleep(1000)
         }
     }
 
