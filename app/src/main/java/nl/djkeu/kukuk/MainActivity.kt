@@ -16,7 +16,8 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val scope = MainScope() // could also use an other scope such as viewModelScope if available
+        // Start and stop the alarms
+        val scope = MainScope()
         var job: Job? = null
 
         fun runAlarms()  {
