@@ -42,21 +42,32 @@ class MainActivity : AppCompatActivity() {
 
     }
 
-    // Play and show kuku once
+    // Show and play kuku text and sound once
     private fun kukuOnce() {
-        // Set kuku sound
-        val resourceId = resources.getIdentifier("keukuk", "raw", packageName)
-        val kukuPlayer = MediaPlayer.create(this, resourceId)
+        kukuTextOnce()
+        kukuSoundOnce()
+    }
 
-        // Show kuku
+    // Show kuku text once
+    private fun kukuTextOnce() {
+        // Set kuku text
         val resultTextView: TextView = findViewById(R.id.textView2)
         resultTextView.text = getString(R.string.kukukTextView)
 
-        kukuPlayer.start()
+        // Reset kuku text
         Handler(Looper.getMainLooper()).postDelayed(
             { resultTextView.text = "" },
             1200
         )
+    }
+
+    // Play kuku sound once
+    private fun kukuSoundOnce() {
+        // Set kuku sound
+        val resourceId = resources.getIdentifier("keukuk", "raw", packageName)
+        val kukuPlayer = MediaPlayer.create(this, resourceId)
+
+        kukuPlayer.start()
     }
 
     // Play and show kuku multiple times
