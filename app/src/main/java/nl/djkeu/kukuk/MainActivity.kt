@@ -42,25 +42,33 @@ class MainActivity : AppCompatActivity() {
 
     }
 
-    // Play and show kuku once
     private fun kukuOnce() {
-        // Set kuku sound
-        val resourceId = resources.getIdentifier("keukuk", "raw", packageName)
-        val kukuPlayer = MediaPlayer.create(this, resourceId)
+        kukuTextOnce()
+        kukuSoundOnce()
+    }
 
+    // Show kuku text once
+    private fun kukuTextOnce() {
         // Show kuku text
         val resultTextView: TextView = findViewById(R.id.textView2)
         resultTextView.text = getString(R.string.kukukTextView)
-
-        // Play kuku sound
-        kukuPlayer.start()
-        Thread.sleep(1000)
 
         // Hide kuku text
         Handler(Looper.getMainLooper()).postDelayed(
             { resultTextView.text = "" },
             1200
         )
+    }
+
+    // Play kuku sound once
+    private fun kukuSoundOnce() {
+        // Set kuku sound
+        val resourceId = resources.getIdentifier("keukuk", "raw", packageName)
+        val kukuPlayer = MediaPlayer.create(this, resourceId)
+
+        // Play kuku sound
+        kukuPlayer.start()
+        Thread.sleep(1000)
     }
 
     // Play and show kuku multiple times
@@ -79,7 +87,7 @@ class MainActivity : AppCompatActivity() {
         val quarters = arrayOf( "15:00", "30:00", "45:00" )
 
         if (currentTime in quarters) {
-            kukuOnce()
+            kukuTimes(1)
         }
     }
 
