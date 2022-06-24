@@ -57,13 +57,13 @@ class MainActivity : AppCompatActivity() {
             { resultTextView.text = "" },
             1200
         )
+        Thread.sleep(1000)
     }
 
     // Play and show kuku multiple times
     private fun kukuTimes(times: Int) {
         for (i in 1..times) {
             kukuOnce()
-            Thread.sleep(1000)
         }
     }
 
