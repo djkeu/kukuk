@@ -87,7 +87,8 @@ class MainActivity : AppCompatActivity() {
         val quarters = arrayOf( "15:00", "30:00", "45:00" )
 
         if (currentTime in quarters) {
-            kukuTimes(1)
+            // kukuTimes(1)
+            kukuOnce()
         }
     }
 
