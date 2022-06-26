@@ -84,19 +84,20 @@ class MainActivity : AppCompatActivity() {
         }
 
         playSound(R.raw.keukuk)
+        Thread.sleep(1000)
         */
 
         // Set kuku sound, this method freezes Ui: (almost) no kukuText
         val resourceId = resources.getIdentifier("keukuk", "raw", packageName)
         val kukuPlayer = MediaPlayer.create(this, resourceId)
         kukuPlayer.start()
+        Thread.sleep(1000)
     }
 
     // Play and show kuku multiple times
     private fun kukuTimes(times: Int) {
         for (i in 1..times) {
             kukuOnce()
-            Thread.sleep(1000)
         }
     }
 
