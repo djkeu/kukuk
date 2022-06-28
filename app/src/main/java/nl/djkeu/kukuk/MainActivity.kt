@@ -65,6 +65,11 @@ class MainActivity : AppCompatActivity() {
     // Play kuku sound once
     private fun kukuSoundOnce() {
 
+        // Set kuku sound, this method freezes Ui: (almost) no kukuText
+        val resourceId = resources.getIdentifier("keukuk", "raw", packageName)
+        val kukuPlayer = MediaPlayer.create(this, resourceId)
+        kukuPlayer.start()
+
         // https://medium.com/androiddevelopers/deep-dive-mediaplayer-best-practices-feb4d15a66f5
         // Not working correctly (yet); UI Freezing, sound not waiting with multiple kuku's
         /*
@@ -86,10 +91,6 @@ class MainActivity : AppCompatActivity() {
         playSound(R.raw.keukuk)
         */
 
-        // Set kuku sound, this method freezes Ui: (almost) no kukuText
-        val resourceId = resources.getIdentifier("keukuk", "raw", packageName)
-        val kukuPlayer = MediaPlayer.create(this, resourceId)
-        kukuPlayer.start()
     }
 
     // Play and show kuku multiple times
