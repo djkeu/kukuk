@@ -66,6 +66,7 @@ class MainActivity : AppCompatActivity() {
     private fun kukuSoundOnce() {
 
         // Set kuku sound, this method freezes Ui: (almost) no kukuText
+        // Use sub-coroutine
         val resourceId = resources.getIdentifier("keukuk", "raw", packageName)
         val kukuPlayer = MediaPlayer.create(this, resourceId)
         kukuPlayer.start()
