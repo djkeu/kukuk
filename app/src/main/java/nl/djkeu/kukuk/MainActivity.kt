@@ -68,7 +68,6 @@ class MainActivity : AppCompatActivity() {
     // Play kuku sound once
     private fun kukuSoundOnce() {
 
-        // Use subcoroutine to solve UI freezing
         // Set kuku sound, this method freezes Ui: (almost) no kukuText
         val resourceId = resources.getIdentifier("keukuk", "raw", packageName)
         val kukuPlayer = MediaPlayer.create(this, resourceId)
