@@ -43,11 +43,13 @@ class MainActivity : AppCompatActivity() {
 
     }
 
+
     // Show and play kuku text and sound once
     private fun kukuOnce() {
         kukuTextOnce()
         kukuSoundOnce()
     }
+
 
     // Show kuku text once
     private fun kukuTextOnce() {
@@ -58,9 +60,10 @@ class MainActivity : AppCompatActivity() {
         // Reset kuku text
         Handler(Looper.getMainLooper()).postDelayed(
             { resultTextView.text = "" },
-            1200
+            1000
         )
     }
+
 
     // Play kuku sound once
     private fun kukuSoundOnce() {
@@ -72,26 +75,6 @@ class MainActivity : AppCompatActivity() {
         kukuPlayer.start()
     }
 
-    // https://medium.com/androiddevelopers/deep-dive-mediaplayer-best-practices-feb4d15a66f5
-        // Not working correctly (yet); UI Freezing, sound not waiting with multiple kuku's
-        /*
-        val context: Context = this
-        val kukuPlayer = MediaPlayer().apply {
-            setOnPreparedListener { start() }
-            setOnCompletionListener { reset() }
-        }
-
-        fun playSound(@RawRes rawResId: Int) {
-            val assetFileDescriptor = context.resources.openRawResourceFd(rawResId) ?: return
-                kukuPlayer.run {
-                    reset()
-                    setDataSource(assetFileDescriptor.fileDescriptor, assetFileDescriptor.startOffset, assetFileDescriptor.declaredLength)
-                    prepareAsync()
-                }
-        }
-
-        playSound(R.raw.keukuk)
-        */
 
     // Play and show kuku multiple times
     private fun kukuTimes(times: Int) {
@@ -100,6 +83,7 @@ class MainActivity : AppCompatActivity() {
             Thread.sleep(1000)
         }
     }
+
 
     // Call kukuOnce() every 15 minutes
     private fun quarterlyAlarms() {
@@ -114,12 +98,12 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+
     // Call kukuTimes every hour
     private fun hourlyAlarms() {
         val getCurrentTime = Calendar.getInstance().time
         val formatter = SimpleDateFormat("hh:mm:ss", Locale.getDefault())
         val currentTime = formatter.format(getCurrentTime)
-
 
         for (i in 1..24) {
             fun checkHours(times: Int) {
@@ -139,6 +123,7 @@ class MainActivity : AppCompatActivity() {
             checkHours(times)
         }
     }
+
 
     // Call kukuTimes every minute
     private fun minutelyAlarms() {
