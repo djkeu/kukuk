@@ -10,6 +10,7 @@ import android.widget.Toast
 import kotlinx.coroutines.*
 import java.text.SimpleDateFormat
 import java.util.*
+import kotlin.time.Duration.Companion.microseconds
 
 
 class MainActivity : AppCompatActivity() {
@@ -47,15 +48,17 @@ class MainActivity : AppCompatActivity() {
 
     // Show and play kuku text and sound once
     private fun kukuOnce() {
-        kukuTextOnce()
         kukuSoundOnce()
+        kukuTextOnce()
     }
 
 
     // Show kuku text once
     private fun kukuTextOnce() {
-        val kukuToast = Toast.makeText(applicationContext,  R.string.kukuk, Toast.LENGTH_SHORT)
+        val kukuToast = Toast.makeText(applicationContext,  R.string.kukukTextView, Toast.LENGTH_SHORT)
         kukuToast.show()
+        Thread.sleep(1000)
+        kukuToast.cancel()
 
         /*
         // Set kuku text
@@ -78,7 +81,7 @@ class MainActivity : AppCompatActivity() {
         val resourceId = resources.getIdentifier("keukuk", "raw", packageName)
         val kukuPlayer = MediaPlayer.create(this, resourceId)
         kukuPlayer.start()
-        Thread.sleep(1000)
+        //Thread.sleep(1000)
 
     }
 
