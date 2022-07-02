@@ -123,6 +123,7 @@ class MainActivity : AppCompatActivity() {
 
 
     // Call kukuTimes every minute
+    /**
     private fun minutelyAlarms() {
         val getCurrentTime = Calendar.getInstance().time
         val formatter = SimpleDateFormat("mm:ss", Locale.getDefault())
@@ -154,5 +155,6 @@ class MainActivity : AppCompatActivity() {
             checkMinutes(times)
         }
     }
+    */
 }
 
