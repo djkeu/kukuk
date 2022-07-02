@@ -69,7 +69,7 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/acme"
             android:textColor="@color/design_default_color_on_primary"
-            android:textSize="80sp"
+            android:textSize="70sp"
             android:textStyle="italic"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
