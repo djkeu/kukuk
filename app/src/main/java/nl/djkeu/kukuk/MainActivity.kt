@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import android.widget.TextView
+import android.widget.Toast
 import kotlinx.coroutines.*
 import java.text.SimpleDateFormat
 import java.util.*
@@ -53,6 +54,10 @@ class MainActivity : AppCompatActivity() {
 
     // Show kuku text once
     private fun kukuTextOnce() {
+        val kukuToast = Toast.makeText(applicationContext,  R.string.kukuk, Toast.LENGTH_SHORT)
+        kukuToast.show()
+
+        /*
         // Set kuku text
         val resultTextView: TextView = findViewById(R.id.textView2)
         resultTextView.text = getString(R.string.kukukTextView)
@@ -62,6 +67,8 @@ class MainActivity : AppCompatActivity() {
             { resultTextView.text = "" },
             1000
         )
+
+         */
     }
 
 
@@ -71,6 +78,8 @@ class MainActivity : AppCompatActivity() {
         val resourceId = resources.getIdentifier("keukuk", "raw", packageName)
         val kukuPlayer = MediaPlayer.create(this, resourceId)
         kukuPlayer.start()
+        Thread.sleep(1000)
+
     }
 
 
@@ -78,7 +87,7 @@ class MainActivity : AppCompatActivity() {
     private fun kukuTimes(times: Int) {
         for (i in 1..times) {
             kukuOnce()
-            Thread.sleep(1000)
+            //Thread.sleep(1100)
         }
     }
 
