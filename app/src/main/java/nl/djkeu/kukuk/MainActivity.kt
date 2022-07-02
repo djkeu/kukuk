@@ -44,30 +44,17 @@ class MainActivity : AppCompatActivity() {
 
     // Show and play kuku text and sound once
     private fun kukuOnce() {
-        kukuSoundOnce()
-        kukuTextOnce()
-    }
+        // Play kuku sound once
+        val resourceId = resources.getIdentifier("keukuk", "raw", packageName)
+        val kukuPlayer = MediaPlayer.create(this, resourceId)
+        kukuPlayer.start()
 
-
-    // Show kuku text once
-    private fun kukuTextOnce() {
-        val kukuToast = Toast.makeText(applicationContext,  R.string.kukukTextView, Toast.LENGTH_SHORT)
+        // Show kuku text once
+        val kukuToast = Toast.makeText(applicationContext, R.string.kukukTextView, Toast.LENGTH_SHORT)
         kukuToast.show()
         Thread.sleep(1000)
         kukuToast.cancel()
     }
-
-
-    // Play kuku sound once
-    private fun kukuSoundOnce() {
-        // Set kuku sound, this method freezes Ui: (almost) no kukuText
-        val resourceId = resources.getIdentifier("keukuk", "raw", packageName)
-        val kukuPlayer = MediaPlayer.create(this, resourceId)
-        kukuPlayer.start()
-        //Thread.sleep(1000)
-
-    }
-
 
     // Play and show kuku multiple times
     private fun kukuTimes(times: Int) {
@@ -91,7 +78,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-
+    // Schedules of the alarms
     // Call kukuTimes every hour
     private fun hourlyAlarms() {
         val getCurrentTime = Calendar.getInstance().time
@@ -116,7 +103,6 @@ class MainActivity : AppCompatActivity() {
             checkHours(times)
         }
     }
-
 
     // Call kukuTimes every minute
     /*
