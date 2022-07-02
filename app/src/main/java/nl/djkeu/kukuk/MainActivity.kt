@@ -28,8 +28,8 @@ class MainActivity : AppCompatActivity() {
             stopAlarms()
             job = scope.launch {
                 while (true) {
-                    quarterlyAlarms()
-                    hourlyAlarms()
+                    //quarterlyAlarms()
+                    //hourlyAlarms()
                     // minutelyAlarms()
                     delay(1000)
                 }
@@ -123,7 +123,6 @@ class MainActivity : AppCompatActivity() {
 
 
     // Call kukuTimes every minute
-    /**
     private fun minutelyAlarms() {
         val getCurrentTime = Calendar.getInstance().time
         val formatter = SimpleDateFormat("mm:ss", Locale.getDefault())
@@ -155,6 +154,5 @@ class MainActivity : AppCompatActivity() {
             checkMinutes(times)
         }
     }
-    */
 }
 
