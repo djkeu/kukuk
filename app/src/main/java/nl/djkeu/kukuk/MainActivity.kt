@@ -3,7 +3,6 @@ package nl.djkeu.kukuk
 import android.media.MediaPlayer
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.TextView
 import android.widget.Toast
 import kotlinx.coroutines.*
 import java.text.SimpleDateFormat
@@ -28,8 +27,8 @@ class MainActivity : AppCompatActivity() {
             stopAlarms()
             job = scope.launch {
                 while (true) {
-                    //quarterlyAlarms()
-                    //hourlyAlarms()
+                    quarterlyAlarms()
+                    hourlyAlarms()
                     // minutelyAlarms()
                     delay(1000)
                 }
@@ -54,11 +53,8 @@ class MainActivity : AppCompatActivity() {
     private fun kukuTextOnce() {
         val kukuToast = Toast.makeText(applicationContext,  R.string.kukukTextView, Toast.LENGTH_SHORT)
         kukuToast.show()
-        val resultTextView: TextView = findViewById(R.id.textView2)
-        resultTextView.text = getString(R.string.kukukTextView)
         Thread.sleep(1000)
         kukuToast.cancel()
-        resultTextView.text = ""
     }
 
 
@@ -123,6 +119,7 @@ class MainActivity : AppCompatActivity() {
 
 
     // Call kukuTimes every minute
+    /*
     private fun minutelyAlarms() {
         val getCurrentTime = Calendar.getInstance().time
         val formatter = SimpleDateFormat("mm:ss", Locale.getDefault())
@@ -154,5 +151,7 @@ class MainActivity : AppCompatActivity() {
             checkMinutes(times)
         }
     }
+
+     */
 }
 
