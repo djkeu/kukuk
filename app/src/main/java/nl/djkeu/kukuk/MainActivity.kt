@@ -59,19 +59,6 @@ class MainActivity : AppCompatActivity() {
         kukuToast.show()
         Thread.sleep(1000)
         kukuToast.cancel()
-
-        /*
-        // Set kuku text
-        val resultTextView: TextView = findViewById(R.id.textView2)
-        resultTextView.text = getString(R.string.kukukTextView)
-
-        // Reset kuku text
-        Handler(Looper.getMainLooper()).postDelayed(
-            { resultTextView.text = "" },
-            1000
-        )
-
-         */
     }
 
 
