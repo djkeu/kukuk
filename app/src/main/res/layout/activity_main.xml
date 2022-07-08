@@ -64,7 +64,6 @@
             app:layout_constraintStart_toStartOf="parent" />
 
         <!-- textView2, where kukuk! should appear -->
-        <!--
         <TextView
             android:id="@+id/textView2"
             android:layout_width="wrap_content"
@@ -77,7 +76,6 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
-        -->
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

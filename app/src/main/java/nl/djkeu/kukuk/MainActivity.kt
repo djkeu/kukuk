@@ -3,7 +3,9 @@ package nl.djkeu.kukuk
 import android.media.MediaPlayer
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Toast
+import android.os.Handler
+import android.os.Looper
+import android.widget.TextView
 import kotlinx.coroutines.*
 import java.text.SimpleDateFormat
 import java.util.*
@@ -27,9 +29,9 @@ class MainActivity : AppCompatActivity() {
             stopAlarms()
             job = scope.launch {
                 while (true) {
-                    quarterlyAlarms()
-                    hourlyAlarms()
-                    // minutelyAlarms()
+                    //quarterlyAlarms()
+                    //hourlyAlarms()
+                    minutelyAlarms()
                     delay(1000)
                 }
             }
@@ -44,23 +46,39 @@ class MainActivity : AppCompatActivity() {
 
     // Show and play kuku text and sound once
     private fun kukuOnce() {
-        // Play kuku sound once
+        kukuTextOnce()
+        kukuSoundOnce()
+    }
+
+
+    // Show kuku text once
+    private fun kukuTextOnce() {
+        // Set kuku text
+        val resultTextView: TextView = findViewById(R.id.textView2)
+        resultTextView.text = getString(R.string.kukukTextView)
+
+        // Reset kuku text
+        Handler(Looper.getMainLooper()).postDelayed(
+            { resultTextView.text = "" },
+            1000
+        )
+    }
+
+
+    // Play kuku sound once
+    private fun kukuSoundOnce() {
+        // Set kuku sound, this method freezes Ui: (almost) no kukuText
         val resourceId = resources.getIdentifier("keukuk", "raw", packageName)
         val kukuPlayer = MediaPlayer.create(this, resourceId)
         kukuPlayer.start()
-
-        // Show kuku text once
-        val kukuToast = Toast.makeText(applicationContext, R.string.kukukTextView, Toast.LENGTH_SHORT)
-        kukuToast.show()
-        Thread.sleep(1000)
-        kukuToast.cancel()
     }
+
 
     // Play and show kuku multiple times
     private fun kukuTimes(times: Int) {
         for (i in 1..times) {
             kukuOnce()
-            //Thread.sleep(1100)
+            Thread.sleep(1000)
         }
     }
 
@@ -78,7 +96,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    // Schedules of the alarms
+
     // Call kukuTimes every hour
     private fun hourlyAlarms() {
         val getCurrentTime = Calendar.getInstance().time
@@ -104,8 +122,8 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+
     // Call kukuTimes every minute
-    /*
     private fun minutelyAlarms() {
         val getCurrentTime = Calendar.getInstance().time
         val formatter = SimpleDateFormat("mm:ss", Locale.getDefault())
@@ -137,7 +155,4 @@ class MainActivity : AppCompatActivity() {
             checkMinutes(times)
         }
     }
-
-     */
 }
-
