@@ -44,13 +44,6 @@ class MainActivity : AppCompatActivity() {
     }
 
 
-    // Show and play kuku text and sound once
-    private fun kukuOnce() {
-        kukuTextOnce()
-        kukuSoundOnce()
-    }
-
-
     // Show kuku text once
     private fun kukuTextOnce() {
         // Set kuku text
@@ -77,7 +70,8 @@ class MainActivity : AppCompatActivity() {
     // Play and show kuku multiple times
     private fun kukuTimes(times: Int) {
         for (i in 1..times) {
-            kukuOnce()
+            kukuTextOnce()
+            kukuSoundOnce()
             Thread.sleep(1000)
         }
     }
@@ -92,7 +86,8 @@ class MainActivity : AppCompatActivity() {
         val quarters = arrayOf( "15:00", "30:00", "45:00" )
 
         if (currentTime in quarters) {
-            kukuOnce()
+            kukuTextOnce()
+            kukuSoundOnce()
         }
     }
 
