@@ -29,8 +29,8 @@ class MainActivity : AppCompatActivity() {
             stopAlarms()
             job = scope.launch {
                 while (true) {
-                    quarterlyAlarms()
-                    hourlyAlarms()
+                    //quarterlyAlarms()
+                    //hourlyAlarms()
                     minutelyAlarms()
                     delay(1000)
                 }
