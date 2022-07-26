@@ -58,7 +58,7 @@
             android:fontFamily="@font/acme"
             android:text="@string/kukuk"
             android:textColor="@color/design_default_color_on_primary"
-            android:textSize="60sp"
+            android:textSize="60sp"Refer
             android:textStyle="italic"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
