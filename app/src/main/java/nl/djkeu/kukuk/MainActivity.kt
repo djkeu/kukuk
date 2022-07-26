@@ -1,5 +1,6 @@
 package nl.djkeu.kukuk
 
+import android.content.Context
 import android.media.MediaPlayer
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -9,6 +10,7 @@ import android.widget.TextView
 import kotlinx.coroutines.*
 import java.text.SimpleDateFormat
 import java.util.*
+import kotlin.coroutines.CoroutineContext
 
 
 class MainActivity : AppCompatActivity() {
@@ -60,10 +62,28 @@ class MainActivity : AppCompatActivity() {
 
     // Play kuku sound once
     private fun kukuSoundOnce() {
-        // Set kuku sound, this method freezes Ui: (almost) no kukuText
-        val resourceId = resources.getIdentifier("keukuk", "raw", packageName)
-        val kukuPlayer = MediaPlayer.create(this, resourceId)
-        kukuPlayer.start()
+        val scope = MainScope()
+        var job: Job? = null
+
+        fun runSound() {
+            fun stopSound() {
+                job?.cancel()
+                job = null
+            }
+
+            stopSound()
+            job = scope.launch {
+                    val resourceId = resources.getIdentifier("keukuk", "raw", packageName)
+                    val kukuPlayer = MediaPlayer.create(this@MainActivity, resourceId)
+                    kukuPlayer.start()
+                    Thread.sleep(1000) // Needs to be replaced
+                    delay( 1000)
+                }
+        }
+
+        runBlocking {
+            runSound()
+        }
     }
 
 
@@ -72,7 +92,6 @@ class MainActivity : AppCompatActivity() {
         for (i in 1..times) {
             kukuTextOnce()
             kukuSoundOnce()
-            Thread.sleep(1000)
         }
     }
 
