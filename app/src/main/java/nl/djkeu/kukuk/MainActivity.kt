@@ -29,10 +29,10 @@ class MainActivity : AppCompatActivity() {
             stopAlarms()
             job = scope.launch {
                 while (true) {
+                    delay(1000)
                     //quarterlyAlarms()
                     //hourlyAlarms()
                     minutelyAlarms()
-                    delay(1000)
                 }
             }
         }
@@ -60,28 +60,10 @@ class MainActivity : AppCompatActivity() {
 
     // Play kuku sound once
     private fun kukuSoundOnce() {
-        val scope = MainScope()
-        var job: Job? = null
-
-        fun runSound() {
-            fun stopSound() {
-                job?.cancel()
-                job = null
-            }
-
-            stopSound()
-            job = scope.launch {
-                val resourceId = resources.getIdentifier("keukuk", "raw", packageName)
-                val kukuPlayer = MediaPlayer.create(this@MainActivity, resourceId)
-                kukuPlayer.start()
-                //Thread.sleep(1000) // Needs to be replaced
-                delay(1000)
-            }
-        }
-
-        runBlocking {
-            runSound()
-        }
+        val resourceId = resources.getIdentifier("keukuk", "raw", packageName)
+        val kukuPlayer = MediaPlayer.create(this, resourceId)
+        kukuPlayer.start()
+        Thread.sleep(1000)
     }
 
 
