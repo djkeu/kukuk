@@ -71,11 +71,12 @@ class MainActivity : AppCompatActivity() {
 
             stopSound()
             job = scope.launch {
-                    val resourceId = resources.getIdentifier("keukuk", "raw", packageName)
-                    val kukuPlayer = MediaPlayer.create(this@MainActivity, resourceId)
-                    kukuPlayer.start()
-                    Thread.sleep(1000) // Needs to be replaced
-                }
+                val resourceId = resources.getIdentifier("keukuk", "raw", packageName)
+                val kukuPlayer = MediaPlayer.create(this@MainActivity, resourceId)
+                kukuPlayer.start()
+                //Thread.sleep(1000) // Needs to be replaced
+                delay(1000)
+            }
         }
 
         runBlocking {
