@@ -63,7 +63,6 @@ class MainActivity : AppCompatActivity() {
         val resourceId = resources.getIdentifier("keukuk", "raw", packageName)
         val kukuPlayer = MediaPlayer.create(this, resourceId)
         kukuPlayer.start()
-        Thread.sleep(1000)
     }
 
 
@@ -71,6 +70,7 @@ class MainActivity : AppCompatActivity() {
     private fun kukuTimes(times: Int) {
         for (i in 1..times) {
             kukuTextOnce()
+            Thread.sleep(1000)
             kukuSoundOnce()
         }
     }
