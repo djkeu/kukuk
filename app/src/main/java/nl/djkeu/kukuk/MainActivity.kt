@@ -67,6 +67,28 @@ class MainActivity : AppCompatActivity() {
 
 
     // Play and show kuku multiple times
+    private fun kukuSoundTimes(times: Int) {
+        for (i in 1..times) {
+            kukuTextOnce()
+            Thread.sleep(1000)
+            kukuSoundOnce()
+        }
+    }
+
+
+    // Play and show kuku multiple times
+    private fun kukuTextTimes(times: Int) {
+        for (i in 1..times) {
+            kukuTextOnce()
+            Thread.sleep(1000)
+            kukuSoundOnce()
+        }
+    }
+
+
+    // Replaced by kukuSoundTimes() and kukuTextTimes()
+    // Play and show kuku multiple times
+
     private fun kukuTimes(times: Int) {
         for (i in 1..times) {
             kukuTextOnce()
