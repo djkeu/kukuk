@@ -66,7 +66,7 @@ class MainActivity : AppCompatActivity() {
     }
 
 
-    // Play and show kuku multiple times
+    // Show kuku text multiple times
     private fun kukuTextTimes(times: Int) {
         for (i in 1..times) {
             kukuTextOnce()
@@ -75,7 +75,7 @@ class MainActivity : AppCompatActivity() {
     }
 
 
-    // Play and show kuku multiple times
+    // Play kuku sound multiple times
     private fun kukuSoundTimes(times: Int) {
         for (i in 1..times) {
             kukuSoundOnce()
