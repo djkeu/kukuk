@@ -67,20 +67,16 @@ class MainActivity : AppCompatActivity() {
 
 
     // Play and show kuku multiple times
-    private fun kukuSoundTimes(times: Int) {
+    private fun kukuTextTimes(times: Int) {
         for (i in 1..times) {
             kukuTextOnce()
-            Thread.sleep(1000)
-            kukuSoundOnce()
         }
     }
 
 
     // Play and show kuku multiple times
-    private fun kukuTextTimes(times: Int) {
+    private fun kukuSoundTimes(times: Int) {
         for (i in 1..times) {
-            kukuTextOnce()
-            Thread.sleep(1000)
             kukuSoundOnce()
         }
     }
@@ -88,7 +84,7 @@ class MainActivity : AppCompatActivity() {
 
     // Replaced by kukuSoundTimes() and kukuTextTimes()
     // Play and show kuku multiple times
-
+    /*
     private fun kukuTimes(times: Int) {
         for (i in 1..times) {
             kukuTextOnce()
@@ -96,7 +92,7 @@ class MainActivity : AppCompatActivity() {
             kukuSoundOnce()
         }
     }
-
+    */
 
     // Call kukuOnce() every 15 minutes
     private fun quarterlyAlarms() {
@@ -125,7 +121,8 @@ class MainActivity : AppCompatActivity() {
                 val hour = "${formattedHour}:00:00"
 
                 if (hour == currentTime) {
-                    kukuTimes(times)
+                    kukuTextTimes(times)
+                    kukuSoundTimes(times)
                 }
             }
 
@@ -151,7 +148,8 @@ class MainActivity : AppCompatActivity() {
                 val minute = "${formattedMinute}:00"
 
                 if (minute == currentTime) {
-                    kukuTimes(times)
+                    kukuTextTimes(times)
+                    kukuSoundTimes(times)
                 }
             }
 
