@@ -70,6 +70,7 @@ class MainActivity : AppCompatActivity() {
     private fun kukuTextTimes(times: Int) {
         for (i in 1..times) {
             kukuTextOnce()
+            Thread.sleep(1000)
         }
     }
 
