@@ -78,6 +78,7 @@ class MainActivity : AppCompatActivity() {
     private fun kukuSoundTimes(times: Int) {
         for (i in 1..times) {
             kukuSoundOnce()
+            Thread.sleep(1000)
         }
     }
 
