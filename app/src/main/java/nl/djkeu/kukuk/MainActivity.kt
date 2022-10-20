@@ -59,15 +59,22 @@ class MainActivity : AppCompatActivity() {
         )
     }
 
-    private fun kukuToast() {
+    private fun kukuToastShort() {
         // Toast.makeText(applicationContext,"this is toast message",Toast.LENGTH_SHORT).show()
-        val kukuToast = Toast.makeText(applicationContext, "Kukuk!", Toast.LENGTH_LONG)
+        val kukuToast = Toast.makeText(applicationContext, "Kukuk!", Toast.LENGTH_SHORT)
         kukuToast.setGravity(Gravity.END,200,2000)
         kukuToast.show()
         //val myToast = Toast.makeText(applicationContext,"toast message with gravity",Toast.LENGTH_SHORT)
         //myToast.setGravity(Gravity.LEFT,200,200)
         //myToast.show()
     }
+
+    private fun kukuToastLong() {
+        val kukuToast = Toast.makeText(applicationContext, "Kukuk!", Toast.LENGTH_LONG)
+        kukuToast.setGravity(Gravity.END,200,2000)
+        kukuToast.show()
+    }
+
 
     // Play kuku sound once
     private fun kukuSoundOnce() {
@@ -80,7 +87,7 @@ class MainActivity : AppCompatActivity() {
     // Show kuku text multiple times
     private fun kukuTextTimes(times: Int) {
         for (i in 1..times) {
-            kukuTextOnce()
+            kukuToastShort()
             Thread.sleep(1000)
         }
     }
@@ -116,7 +123,7 @@ class MainActivity : AppCompatActivity() {
         val quarters = arrayOf( "15:00", "30:00", "45:00" )
 
         if (currentTime in quarters) {
-            kukuTextOnce()
+            kukuToastLong()
             kukuSoundOnce()
         }
     }
@@ -161,8 +168,8 @@ class MainActivity : AppCompatActivity() {
                 val minute = "${formattedMinute}:00"
 
                 if (minute == currentTime) {
-                    kukuToast()
-                    //kukuTextTimes(times)
+                    // kukuToast()
+                    kukuTextTimes(times)
                     kukuSoundTimes(times)
                 }
             }
