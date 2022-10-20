@@ -60,23 +60,6 @@ class MainActivity : AppCompatActivity() {
     }
 
 
-    private fun kukuToastShort() {
-        // Toast.makeText(applicationContext,"this is toast message",Toast.LENGTH_SHORT).show()
-        val kukuToast = Toast.makeText(applicationContext, "Kukuk!", Toast.LENGTH_SHORT)
-        kukuToast.setGravity(Gravity.START,200,200)
-        kukuToast.show()
-        //val myToast = Toast.makeText(applicationContext,"toast message with gravity",Toast.LENGTH_SHORT)
-        //myToast.setGravity(Gravity.LEFT,200,200)
-        //myToast.show()
-    }
-
-    private fun kukuToastLong() {
-        val kukuToast = Toast.makeText(applicationContext, "Kukuk!", Toast.LENGTH_LONG)
-        kukuToast.setGravity(Gravity.END,200,200)
-        kukuToast.show()
-    }
-
-
     // Play kuku sound once
     private fun kukuSoundOnce() {
         val resourceId = resources.getIdentifier("keukuk", "raw", packageName)
@@ -102,18 +85,6 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-
-    // Replaced by kukuSoundTimes() and kukuTextTimes()
-    // Play and show kuku multiple times
-    /*
-    private fun kukuTimes(times: Int) {
-        for (i in 1..times) {
-            kukuTextOnce()
-            Thread.sleep(1000)
-            kukuSoundOnce()
-        }
-    }
-    */
 
     // Call kukuOnce() every 15 minutes
     private fun quarterlyAlarms() {
@@ -172,7 +143,7 @@ class MainActivity : AppCompatActivity() {
                     // kukuToast()
                     // kukuTextOnce()
                     kukuTextTimes(times)
-                    kukuSoundTimes(times)
+                    // kukuSoundTimes(times)
                 }
             }
 
