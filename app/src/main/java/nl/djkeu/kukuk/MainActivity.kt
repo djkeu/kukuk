@@ -47,6 +47,7 @@ class MainActivity : AppCompatActivity() {
 
 
     // Show kuku text once
+    /*
     private fun kukuTextOnce() {
         // Set kuku text
         val resultTextView: TextView = findViewById(R.id.textView2)
@@ -58,6 +59,8 @@ class MainActivity : AppCompatActivity() {
             1000
         )
     }
+    */
+
 
     private fun kukuToastShort() {
         // Toast.makeText(applicationContext,"this is toast message",Toast.LENGTH_SHORT).show()
