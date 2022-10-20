@@ -4,7 +4,9 @@ import android.media.MediaPlayer
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
+import android.view.Gravity
 import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import kotlinx.coroutines.*
 import java.text.SimpleDateFormat
@@ -57,6 +59,14 @@ class MainActivity : AppCompatActivity() {
         )
     }
 
+    private fun kukuToast() {
+        // Toast.makeText(applicationContext,"this is toast message",Toast.LENGTH_SHORT).show()
+        val kukuToast = Toast.makeText(applicationContext, "Kukuk!", Toast.LENGTH_LONG)
+        kukuToast.show()
+        //val myToast = Toast.makeText(applicationContext,"toast message with gravity",Toast.LENGTH_SHORT)
+        //myToast.setGravity(Gravity.LEFT,200,200)
+        //myToast.show()
+    }
 
     // Play kuku sound once
     private fun kukuSoundOnce() {
@@ -150,7 +160,8 @@ class MainActivity : AppCompatActivity() {
                 val minute = "${formattedMinute}:00"
 
                 if (minute == currentTime) {
-                    kukuTextTimes(times)
+                    kukuToast()
+                    //kukuTextTimes(times)
                     kukuSoundTimes(times)
                 }
             }
