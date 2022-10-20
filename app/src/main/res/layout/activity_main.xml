@@ -49,22 +49,21 @@
             tools:targetApi="s" />
 
         <!-- Kukuk logo -->
-
-        <!-- textView2, where kukuk! should appear -->
-
         <TextView
             android:id="@+id/textView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="108dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginBottom="24dp"
             android:fontFamily="@font/acme"
             android:text="@string/kukuk"
             android:textColor="@color/design_default_color_on_primary"
             android:textSize="60sp"
             android:textStyle="italic"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/simpleAnalogClock" />
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
 
+        <!-- textView2, where kukuk! should appear -->
         <TextView
             android:id="@+id/textView2"
             android:layout_width="0dp"
@@ -76,10 +75,9 @@
             android:textStyle="italic"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.761" />
+            app:layout_constraintTop_toTopOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
