@@ -88,7 +88,7 @@ class MainActivity : AppCompatActivity() {
     private fun kukuTextTimes(times: Int) {
         for (i in 1..times) {
             kukuToastShort()
-            Thread.sleep(1000)
+            //Thread.sleep(1000)
         }
     }
 
