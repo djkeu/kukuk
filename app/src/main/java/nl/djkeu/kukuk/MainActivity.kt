@@ -70,7 +70,6 @@ class MainActivity : AppCompatActivity() {
     private fun kukuTextTimes(times: Int) {
         for (i in 1..times) {
             kukuTextOnce()
-            //Thread.sleep(1000)
         }
     }
 
@@ -138,9 +137,8 @@ class MainActivity : AppCompatActivity() {
                 val minute = "${formattedMinute}:00"
 
                 if (minute == currentTime) {
-                    // kukuTextOnce()
                     kukuTextTimes(times)
-                    // kukuSoundTimes(times)
+                    kukuSoundTimes(times)
                 }
             }
 
