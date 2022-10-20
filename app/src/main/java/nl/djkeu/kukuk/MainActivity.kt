@@ -32,9 +32,9 @@ class MainActivity : AppCompatActivity() {
             job = scope.launch {
                 while (true) {
                     delay(1000)  // Needed to start the UI
-                    //quarterlyAlarms()
-                    //hourlyAlarms()
-                    minutelyAlarms()
+                    quarterlyAlarms()
+                    hourlyAlarms()
+                    //minutelyAlarms()
                 }
             }
         }
@@ -65,7 +65,7 @@ class MainActivity : AppCompatActivity() {
     private fun kukuToastShort() {
         // Toast.makeText(applicationContext,"this is toast message",Toast.LENGTH_SHORT).show()
         val kukuToast = Toast.makeText(applicationContext, "Kukuk!", Toast.LENGTH_SHORT)
-        kukuToast.setGravity(Gravity.END,200,200)
+        kukuToast.setGravity(Gravity.START,200,200)
         kukuToast.show()
         //val myToast = Toast.makeText(applicationContext,"toast message with gravity",Toast.LENGTH_SHORT)
         //myToast.setGravity(Gravity.LEFT,200,200)
