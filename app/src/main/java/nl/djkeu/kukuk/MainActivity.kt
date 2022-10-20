@@ -65,7 +65,7 @@ class MainActivity : AppCompatActivity() {
     private fun kukuToastShort() {
         // Toast.makeText(applicationContext,"this is toast message",Toast.LENGTH_SHORT).show()
         val kukuToast = Toast.makeText(applicationContext, "Kukuk!", Toast.LENGTH_SHORT)
-        kukuToast.setGravity(Gravity.END,200,2000)
+        kukuToast.setGravity(Gravity.END,200,200)
         kukuToast.show()
         //val myToast = Toast.makeText(applicationContext,"toast message with gravity",Toast.LENGTH_SHORT)
         //myToast.setGravity(Gravity.LEFT,200,200)
@@ -74,7 +74,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun kukuToastLong() {
         val kukuToast = Toast.makeText(applicationContext, "Kukuk!", Toast.LENGTH_LONG)
-        kukuToast.setGravity(Gravity.END,200,2000)
+        kukuToast.setGravity(Gravity.END,200,200)
         kukuToast.show()
     }
 
