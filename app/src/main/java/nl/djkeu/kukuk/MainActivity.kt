@@ -2,10 +2,10 @@ package nl.djkeu.kukuk
 
 import android.media.MediaPlayer
 import android.os.Bundle
-//import android.os.Handler
-//import android.os.Looper
+import android.os.Looper
+import android.os.Handler
 import android.view.Gravity
-//import android.widget.TextView
+import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import kotlinx.coroutines.*
@@ -47,7 +47,6 @@ class MainActivity : AppCompatActivity() {
 
 
     // Show kuku text once
-    /*
     private fun kukuTextOnce() {
         // Set kuku text
         val resultTextView: TextView = findViewById(R.id.textView2)
@@ -59,7 +58,6 @@ class MainActivity : AppCompatActivity() {
             1000
         )
     }
-    */
 
 
     private fun kukuToastShort() {
@@ -90,7 +88,7 @@ class MainActivity : AppCompatActivity() {
     // Show kuku text multiple times
     private fun kukuTextTimes(times: Int) {
         for (i in 1..times) {
-            kukuToastShort()
+            kukuTextOnce()
             //Thread.sleep(1000)
         }
     }
@@ -126,7 +124,7 @@ class MainActivity : AppCompatActivity() {
         val quarters = arrayOf( "15:00", "30:00", "45:00" )
 
         if (currentTime in quarters) {
-            kukuToastLong()
+            kukuTextOnce()
             kukuSoundOnce()
         }
     }
@@ -172,6 +170,7 @@ class MainActivity : AppCompatActivity() {
 
                 if (minute == currentTime) {
                     // kukuToast()
+                    // kukuTextOnce()
                     kukuTextTimes(times)
                     kukuSoundTimes(times)
                 }
