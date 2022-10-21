@@ -142,7 +142,9 @@ class MainActivity : AppCompatActivity() {
                 }
             }
 
-            val times = if (i < 11) {
+            val times = if (i == 0) {
+                i + 10
+            } else if (i < 11) {
                 i - 0
             } else if (i < 21) {
                 i - 10
