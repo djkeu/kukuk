@@ -131,7 +131,7 @@ class MainActivity : AppCompatActivity() {
         val formatter = SimpleDateFormat("mm:ss", Locale.getDefault())
         val currentTime = formatter.format(getCurrentTime)
 
-        for (i in 1..59) {
+        for (i in 0..59) {
             fun checkMinutes(times: Int) {
                 val formattedMinute = String.format("%02d", i)
                 val minute = "${formattedMinute}:00"
