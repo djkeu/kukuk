@@ -83,7 +83,7 @@ class MainActivity : AppCompatActivity() {
     }
 
 
-    // Call kukuOnce() every 15 minutes
+    // Quarterly alarms
     private fun quarterlyAlarms() {
         val getCurrentTime = Calendar.getInstance().time
         val formatter = SimpleDateFormat("mm:ss", Locale.getDefault())
@@ -98,7 +98,7 @@ class MainActivity : AppCompatActivity() {
     }
 
 
-    // Call kukuTimes every hour
+    // Hourly alarms
     private fun hourlyAlarms() {
         val getCurrentTime = Calendar.getInstance().time
         val formatter = SimpleDateFormat("hh:mm:ss", Locale.getDefault())
@@ -125,7 +125,7 @@ class MainActivity : AppCompatActivity() {
     }
 
 
-    // Call kukuTimes every minute
+    // Minutely alarms
     private fun minutelyAlarms() {
         val getCurrentTime = Calendar.getInstance().time
         val formatter = SimpleDateFormat("mm:ss", Locale.getDefault())
