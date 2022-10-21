@@ -9,7 +9,6 @@ import androidx.appcompat.app.AppCompatActivity
 import kotlinx.coroutines.*
 import java.text.SimpleDateFormat
 import java.util.*
-import kotlin.text.Typography.times
 
 
 class MainActivity : AppCompatActivity() {
