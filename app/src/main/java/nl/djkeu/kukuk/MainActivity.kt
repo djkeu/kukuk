@@ -9,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity
 import kotlinx.coroutines.*
 import java.text.SimpleDateFormat
 import java.util.*
+import kotlin.text.Typography.times
 
 
 class MainActivity : AppCompatActivity() {
@@ -138,7 +139,7 @@ class MainActivity : AppCompatActivity() {
 
                 if (minute == currentTime) {
                     kukuTextTimes(times)
-                    kukuSoundTimes(times)
+                    // kukuSoundTimes(times)
                 }
             }
 
