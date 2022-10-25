@@ -126,6 +126,9 @@ class MainActivity : AppCompatActivity() {
 
 
     // Minutely alarms
+
+    // Needs rewrite, check for (milli-)seconds per minute instead of minutes per hour.
+
     private fun minutelyAlarms() {
         val getCurrentTime = Calendar.getInstance().time
         val formatter = SimpleDateFormat("mm:ss", Locale.getDefault())
