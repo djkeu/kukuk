@@ -128,6 +128,7 @@ class MainActivity : AppCompatActivity() {
     // Minutely alarms
 
     // Needs rewrite, check for (milli-)seconds per minute instead of minutes per hour.
+    // Drop the for loop and the if else conditions for fixed number of kuku's
 
     private fun minutelyAlarms() {
         val getCurrentTime = Calendar.getInstance().time
