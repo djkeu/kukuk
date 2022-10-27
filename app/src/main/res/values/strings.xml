@@ -1,8 +1,14 @@
 <resources>
     <string name="app_name">Kukuk</string>
-    <string name="kukuk">kukuk</string>
-    <string name="kukukButtonText">Kukuk</string>
-    <string name="kukukTextViewText">Ku kuk</string>
+
+    <!-- Logo-->
+    <string name="kukuk">kuku klok</string>
+
+    <!-- Kuku text -->
     <string name="kukukTextView">Ku kuk!</string>
     <string name="emptyString"> </string>
+    <!--
+    <string name="kukukButtonText">Kukuk</string>
+    <string name="kukukTextViewText">Ku kuk</string>
+    -->
 </resources>
