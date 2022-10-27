@@ -9,7 +9,6 @@ import androidx.appcompat.app.AppCompatActivity
 import kotlinx.coroutines.*
 import java.text.SimpleDateFormat
 import java.util.*
-import kotlin.text.Typography.times
 
 
 class MainActivity : AppCompatActivity() {
@@ -31,9 +30,9 @@ class MainActivity : AppCompatActivity() {
             job = scope.launch {
                 while (true) {
                     delay(1000)  // Needed to start the UI
-                    quarterlyAlarms()
+                    // quarterlyAlarms()
                     // hourlyAlarms()
-                    // minutelyAlarms()
+                    minutelyAlarms()
                 }
             }
         }
@@ -140,9 +139,8 @@ class MainActivity : AppCompatActivity() {
 
             if (minute == currentTime) {
                 kukuTextTimes(times)
-                kukuSoundTimes(times)
+                // kukuSoundTimes(times)
             }
-
         }
     }
 
