@@ -126,11 +126,29 @@ class MainActivity : AppCompatActivity() {
 
 
     // Minutely alarms
-
-    // Needs rewrite, check for (milli-)seconds per minute instead of minutes per hour.
-    // Drop the for loop and the if else conditions for fixed number of kuku's
-
     private fun minutelyAlarms() {
+        val getCurrentTime = Calendar.getInstance().time
+        val formatter = SimpleDateFormat("mm:ss", Locale.getDefault())
+        val currentTime = formatter.format(getCurrentTime)
+
+        for (i in 0..59) {
+            fun checkMinutes(times: Int) {
+                val formattedMinute = String.format("%02d", i)
+                val minute = "${formattedMinute}:00"
+
+                if (minute == currentTime) {
+                    kukuTextTimes(times)
+                    kukuSoundTimes(times)
+                }
+            }
+
+            checkMinutes(3)
+        }
+    }
+
+
+    // Obsolete Minutely alarms
+    private fun minutelyAlarmsOld() {
         val getCurrentTime = Calendar.getInstance().time
         val formatter = SimpleDateFormat("mm:ss", Locale.getDefault())
         val currentTime = formatter.format(getCurrentTime)
@@ -161,6 +179,7 @@ class MainActivity : AppCompatActivity() {
             } else {
                 i - 50
             }
+
             checkMinutes(times)
         }
     }
