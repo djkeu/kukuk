@@ -140,7 +140,7 @@ class MainActivity : AppCompatActivity() {
 
             if (minute == currentTime) {
                 kukuTextTimes(times)
-                kukuSoundTimes(times)
+                // kukuSoundTimes(times)
             }
 
         }
