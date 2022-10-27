@@ -136,9 +136,11 @@ class MainActivity : AppCompatActivity() {
             val formattedMinute = String.format("%02d", i)
             val minute = "${formattedMinute}:00"
 
+            val times = 3
+
             if (minute == currentTime) {
-                kukuTextTimes(3)
-                kukuSoundTimes(3)
+                kukuTextTimes(times)
+                kukuSoundTimes(times)
             }
 
         }
