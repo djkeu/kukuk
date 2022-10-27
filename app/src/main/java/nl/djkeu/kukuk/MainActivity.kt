@@ -9,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity
 import kotlinx.coroutines.*
 import java.text.SimpleDateFormat
 import java.util.*
+import kotlin.text.Typography.times
 
 
 class MainActivity : AppCompatActivity() {
@@ -132,17 +133,14 @@ class MainActivity : AppCompatActivity() {
         val currentTime = formatter.format(getCurrentTime)
 
         for (i in 0..59) {
-            fun checkMinutes(times: Int) {
-                val formattedMinute = String.format("%02d", i)
-                val minute = "${formattedMinute}:00"
+            val formattedMinute = String.format("%02d", i)
+            val minute = "${formattedMinute}:00"
 
-                if (minute == currentTime) {
-                    kukuTextTimes(times)
-                    // kukuSoundTimes(times)
-                }
+            if (minute == currentTime) {
+                kukuTextTimes(3)
+                kukuSoundTimes(3)
             }
 
-            checkMinutes(3)
         }
     }
 
