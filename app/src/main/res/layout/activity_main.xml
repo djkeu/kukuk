@@ -68,7 +68,6 @@
             android:id="@+id/textView2"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="@string/kukukTextView"
             android:fontFamily="@font/acme"
             android:gravity="center_horizontal"
             android:textColor="@color/design_default_color_on_primary"
