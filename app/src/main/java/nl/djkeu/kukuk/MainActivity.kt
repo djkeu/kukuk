@@ -47,7 +47,13 @@ class MainActivity : AppCompatActivity() {
 
     // Show kuku text once
     private fun kukuTextOnce() {
-        // ToDo: Use Toast instead
+        // ToDo: Switch to SuperToast for more options
+        // URL: https://github.com/JohnPersano/SuperToasts
+        val toast = Toast.makeText(applicationContext, "Kukuk!", Toast.LENGTH_SHORT)
+        toast.show()
+
+        /*
+        // ToDo: Remove later
         // Set kuku text
         val resultTextView: TextView = findViewById(R.id.textView2)
         resultTextView.text = getString(R.string.kukukTextView)
@@ -57,6 +63,7 @@ class MainActivity : AppCompatActivity() {
             { resultTextView.text = "" },
             1000
         )
+        */
     }
 
 
@@ -71,12 +78,8 @@ class MainActivity : AppCompatActivity() {
     // Show kuku text multiple times
     private fun kukuTextTimes(times: Int) {
         for (i in 1..times) {
-            // kukuTextOnce()
+            kukuTextOnce()
 
-            // ToDo: Switch to SuperToast for more options
-            // URL: https://github.com/JohnPersano/SuperToasts
-            val toast = Toast.makeText(applicationContext, "Kukuk!", Toast.LENGTH_SHORT)
-            toast.show()
         }
     }
 
