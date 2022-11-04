@@ -49,8 +49,8 @@ class MainActivity : AppCompatActivity() {
     private fun kukuTextOnce() {
         // ToDo: Switch to SuperToast for more options
         // URL: https://github.com/JohnPersano/SuperToasts
-        val toast = Toast.makeText(applicationContext, "Kukuk!", Toast.LENGTH_SHORT)
-        toast.show()
+        val kukuToast = Toast.makeText(applicationContext, "Kukuk!", Toast.LENGTH_SHORT)
+        kukuToast.show()
 
         /*
         // ToDo: Remove later
