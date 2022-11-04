@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.os.Looper
 import android.os.Handler
 import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import kotlinx.coroutines.*
 import java.text.SimpleDateFormat
@@ -69,7 +70,10 @@ class MainActivity : AppCompatActivity() {
     // Show kuku text multiple times
     private fun kukuTextTimes(times: Int) {
         for (i in 1..times) {
-            kukuTextOnce()
+            // kukuTextOnce()
+
+            val toast = Toast.makeText(applicationContext, "Kukuk!", Toast.LENGTH_SHORT)
+            toast.show()
         }
     }
 
@@ -139,7 +143,7 @@ class MainActivity : AppCompatActivity() {
 
             if (minute == currentTime) {
                 kukuTextTimes(times)
-                // kukuSoundTimes(times)
+                kukuSoundTimes(times)
             }
         }
     }
