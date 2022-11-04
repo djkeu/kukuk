@@ -72,6 +72,7 @@ class MainActivity : AppCompatActivity() {
         for (i in 1..times) {
             // kukuTextOnce()
 
+            // Switch to SuperToast for more options
             val toast = Toast.makeText(applicationContext, "Kukuk!", Toast.LENGTH_SHORT)
             toast.show()
         }
