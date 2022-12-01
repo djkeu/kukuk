@@ -2,7 +2,7 @@
     <string name="app_name">Kukuk</string>
 
     <!-- Logo-->
-    <string name="kukuk" tools:ignore="Typos">ku ku klok</string>
+    <string name="kukuk" tools:ignore="Typos">kukuk</string>
 
     <!-- Kuku text -->
     <string name="kukukTextView">Ku kuk!</string>
