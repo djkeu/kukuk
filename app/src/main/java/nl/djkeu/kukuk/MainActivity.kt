@@ -119,7 +119,9 @@ class MainActivity : AppCompatActivity() {
                 val hour = "${formattedHour}:00:00"
 
                 if (hour == currentTime) {
-                    kukuTextTimes(times)
+                    // Text once until SuperToasts are set correctly
+                    kukuTextOnce()
+                    // kukuTextTimes(times)
                     kukuSoundTimes(times)
                 }
             }
