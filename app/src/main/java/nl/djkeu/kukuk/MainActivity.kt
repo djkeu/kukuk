@@ -120,9 +120,9 @@ class MainActivity : AppCompatActivity() {
 
                 if (hour == currentTime) {
                     // Text once until SuperToasts are set correctly
+                    kukuSoundTimes(times)
                     kukuTextOnce()
                     // kukuTextTimes(times)
-                    kukuSoundTimes(times)
                 }
             }
 
@@ -149,9 +149,9 @@ class MainActivity : AppCompatActivity() {
 
                 if (minute == currentTime) {
                     // Text once until SuperToasts are set correctly
+                    kukuSoundTimes(times)
                     kukuTextOnce()
                     // kukuTextTimes(times)
-                    kukuSoundTimes(times)
                 }
             }
 
