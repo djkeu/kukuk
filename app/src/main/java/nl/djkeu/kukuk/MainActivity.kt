@@ -156,7 +156,7 @@ class MainActivity : AppCompatActivity() {
             }
 
             val times = if (i == 0) {
-                i + 10
+                10
             } else if (i < 11) {
                 i - 0
             } else if (i < 21) {
