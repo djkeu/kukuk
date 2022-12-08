@@ -93,6 +93,7 @@ class MainActivity : AppCompatActivity() {
 
 
     // Quarterly alarms
+    @Suppress("unused")
     private fun quarterlyAlarms() {
         val getCurrentTime = Calendar.getInstance().time
         val formatter = SimpleDateFormat("mm:ss", Locale.getDefault())
@@ -108,6 +109,7 @@ class MainActivity : AppCompatActivity() {
 
 
     // Hourly alarms
+    @Suppress("unused")
     private fun hourlyAlarms() {
         val getCurrentTime = Calendar.getInstance().time
         val formatter = SimpleDateFormat("hh:mm:ss", Locale.getDefault())
