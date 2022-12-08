@@ -28,9 +28,9 @@ class MainActivity : AppCompatActivity() {
             job = scope.launch {
                 while (true) {
                     delay(1000)  // Needed to start the UI
-                    quarterlyAlarms()
-                    hourlyAlarms()
-                    // minutelyAlarms()
+                    // quarterlyAlarms()
+                    // hourlyAlarms()
+                    minutelyAlarms()
                 }
             }
         }
