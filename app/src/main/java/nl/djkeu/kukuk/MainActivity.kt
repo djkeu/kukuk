@@ -75,6 +75,7 @@ class MainActivity : AppCompatActivity() {
 
 
     // Show kuku text multiple times
+    @Suppress("unused")
     private fun kukuTextTimes(times: Int) {
         for (i in 1..times) {
             kukuTextOnce()
@@ -109,7 +110,7 @@ class MainActivity : AppCompatActivity() {
 
 
     // Hourly alarms
-    @Suppress("unused")
+    @Suppress("unused", "unused")
     private fun hourlyAlarms() {
         val getCurrentTime = Calendar.getInstance().time
         val formatter = SimpleDateFormat("hh:mm:ss", Locale.getDefault())
