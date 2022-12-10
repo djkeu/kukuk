@@ -23,11 +23,6 @@ class MainActivity : AppCompatActivity() {
         val kukuScope = MainScope()
         var job: Job? = null
 
-        fun stopAlarms() {
-            job?.cancel()
-            job = null
-        }
-
         suspend fun loopAlarms() {
             while (true) {
                 delay(1000)  // Needed to start the UI
@@ -35,7 +30,6 @@ class MainActivity : AppCompatActivity() {
                 // hourlyAlarms()
                 minutelyAlarms()
             }
-
         }
 
         fun startAlarms() {
@@ -44,13 +38,14 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
-        fun runAlarms()  {
-            stopAlarms()
-            startAlarms()
+        fun stopAlarms() {
+            job?.cancel()
+            job = null
         }
 
         runBlocking {
-            runAlarms()
+            stopAlarms()
+            startAlarms()
         }
 
     }
