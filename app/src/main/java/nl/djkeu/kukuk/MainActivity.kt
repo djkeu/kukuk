@@ -61,7 +61,10 @@ class MainActivity : AppCompatActivity() {
         // ToDo: Get text from strings.xml
         // URL: https://github.com/JohnPersano/SuperToasts
 
-        val kukuToast = Toast.makeText(applicationContext, "Kukuk!", Toast.LENGTH_SHORT)
+        val kukuToast = Toast.makeText(applicationContext,
+            getString((R.string.kukukTextView)),
+            Toast.LENGTH_SHORT)
+
         kukuToast.show()
 
         /*
