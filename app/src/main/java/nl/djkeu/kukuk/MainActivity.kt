@@ -23,12 +23,16 @@ class MainActivity : AppCompatActivity() {
         val kukuScope = MainScope()
         var job: Job? = null
 
+        fun chooseAlarms() {
+            // quarterlyAlarms()
+            // hourlyAlarms()
+            minutelyAlarms()
+        }
+
         suspend fun loopAlarms() {
             while (true) {
                 delay(1000)  // Needed to start the UI
-                // quarterlyAlarms()
-                // hourlyAlarms()
-                minutelyAlarms()
+                chooseAlarms()
             }
         }
 
