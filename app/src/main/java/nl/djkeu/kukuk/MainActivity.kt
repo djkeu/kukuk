@@ -15,7 +15,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         // Start and stop the alarms
-        val scope = MainScope()
+        val kukuScope = MainScope()
         var job: Job? = null
 
         fun runAlarms()  {
@@ -25,7 +25,7 @@ class MainActivity : AppCompatActivity() {
             }
 
             stopAlarms()
-            job = scope.launch {
+            job = kukuScope.launch {
                 while (true) {
                     delay(1000)  // Needed to start the UI
                     // quarterlyAlarms()
