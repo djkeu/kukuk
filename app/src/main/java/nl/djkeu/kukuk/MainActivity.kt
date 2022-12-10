@@ -132,24 +132,21 @@ class MainActivity : AppCompatActivity() {
         val currentTime = formatter.format(getCurrentTime)
 
         for (i in 1..24) {
-            fun checkHours(times: Int) {
-                val formattedHour = String.format("%02d", i)
-                val hour = "${formattedHour}:00:00"
-
-                if (hour == currentTime) {
-                    // Text once until SuperToasts are set correctly
-                    kukuSoundTimes(times)
-                    kukuTextOnce()
-                    // kukuTextTimes(times)
-                }
-            }
-
             val times = if (i < 13) {
                 i - 0
             } else {
                 i - 12
             }
-            checkHours(times)
+
+            val formattedHour = String.format("%02d", i)
+            val hour = "${formattedHour}:00:00"
+
+            if (hour == currentTime) {
+                // Text once until SuperToasts are set correctly
+                kukuSoundTimes(times)
+                kukuTextOnce()
+                // kukuTextTimes(times)
+            }
         }
     }
 
