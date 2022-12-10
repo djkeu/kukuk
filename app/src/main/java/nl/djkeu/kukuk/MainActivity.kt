@@ -24,20 +24,25 @@ class MainActivity : AppCompatActivity() {
             job = null
         }
 
-        fun loopAlarms() {
+        suspend fun loopAlarms() {
+            while (true) {
+                delay(1000)  // Needed to start the UI
+                // quarterlyAlarms()
+                // hourlyAlarms()
+                minutelyAlarms()
+            }
+
+        }
+
+        fun startAlarms() {
             job = kukuScope.launch {
-                while (true) {
-                    delay(1000)  // Needed to start the UI
-                    // quarterlyAlarms()
-                    // hourlyAlarms()
-                    minutelyAlarms()
-                }
+                loopAlarms()
             }
         }
 
         fun runAlarms()  {
             stopAlarms()
-            loopAlarms()
+            startAlarms()
         }
 
         runBlocking {
