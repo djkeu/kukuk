@@ -162,18 +162,6 @@ class MainActivity : AppCompatActivity() {
         val currentTime = formatter.format(getCurrentTime)
 
         for (i in 0..59) {
-            fun checkMinutes(times: Int) {
-                val formattedMinute = String.format("%02d", i)
-                val minute = "${formattedMinute}:00"
-
-                if (minute == currentTime) {
-                    // Text once until SuperToasts are set correctly
-                    kukuSoundTimes(times)
-                    kukuTextOnce()
-                    // kukuTextTimes(times)
-                }
-            }
-
             val times = if (i == 0) {
                 10
             } else if (i < 11) {
@@ -189,7 +177,18 @@ class MainActivity : AppCompatActivity() {
             } else {
                 i - 50
             }
-            checkMinutes(times)
+
+            val formattedMinute = String.format("%02d", i)
+            val minute = "${formattedMinute}:00"
+
+            if (minute == currentTime) {
+                // Text once until SuperToasts are set correctly
+                kukuSoundTimes(times)
+                kukuTextOnce()
+                // kukuTextTimes(times)
+            }
+
         }
+
     }
 }
