@@ -14,7 +14,13 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        // ToDo: this scope doesn't fix the UI freezes
+        /*
+        ToDo: this scope doesn't fix the UI freezes
+        ToDo: replace kukuScope with rumBlocking function
+        ToDo: fix UI freeze in minutelyAlarms()
+        ToDo: fix UI freezes in hourlyAlarms()
+         */
+
         // Start and stop the alarms
         val kukuScope = MainScope()
         var job: Job? = null
