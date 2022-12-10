@@ -19,6 +19,7 @@ class MainActivity : AppCompatActivity() {
         ToDo: fix UI freezes in hourlyAlarms()
          */
 
+
         // Start and stop the alarms
         val kukuScope = MainScope()
         var job: Job? = null
@@ -51,7 +52,6 @@ class MainActivity : AppCompatActivity() {
             stopAlarms()
             startAlarms()
         }
-
     }
 
 
@@ -68,7 +68,7 @@ class MainActivity : AppCompatActivity() {
 
 
         /*
-        // ToDo: Remove later
+        // ToDo: UI freezing issues
         // Set kuku text
         val resultTextView: TextView = findViewById(R.id.textView2)
         resultTextView.text = getString(R.string.kukukTextView)
@@ -95,7 +95,6 @@ class MainActivity : AppCompatActivity() {
     private fun kukuTextTimes(times: Int) {
         for (i in 1..times) {
             kukuTextOnce()
-
         }
     }
 
