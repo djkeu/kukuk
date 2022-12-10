@@ -62,7 +62,7 @@ class MainActivity : AppCompatActivity() {
 
         val kukuToast = Toast.makeText(applicationContext,
             getString((R.string.kukukTextView)),
-            Toast.LENGTH_SHORT)
+            Toast.LENGTH_LONG)
 
         kukuToast.show()
 
