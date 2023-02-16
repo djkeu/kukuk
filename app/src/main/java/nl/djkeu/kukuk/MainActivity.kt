@@ -62,8 +62,7 @@ class MainActivity : AppCompatActivity() {
 
     // Show kuku text once
     private fun kukuTextOnce() {
-
-        // ToDo: Switch to SuperToast for more options
+        /*
         // URL: https://github.com/JohnPersano/SuperToasts
 
         val kukuToast = Toast.makeText(applicationContext,
@@ -71,7 +70,7 @@ class MainActivity : AppCompatActivity() {
             Toast.LENGTH_LONG)
 
         kukuToast.show()
-
+        */
 
         // ToDo: UI freezing issues
         // Instead, use data binding or ViewBinding to bind views to Kotlin classes.
