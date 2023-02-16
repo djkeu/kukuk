@@ -63,8 +63,6 @@ class MainActivity : AppCompatActivity() {
     // Show kuku text once
     private fun kukuTextOnce() {
         /*
-        // URL: https://github.com/JohnPersano/SuperToasts
-
         val kukuToast = Toast.makeText(applicationContext,
             getString((R.string.kukukTextView)),
             Toast.LENGTH_LONG)
