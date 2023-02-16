@@ -26,7 +26,7 @@ class MainActivity : AppCompatActivity() {
         // Start and stop the alarms
         val kukuScope = MainScope()
 
-        suspend fun chooseAlarms() {
+        suspend fun startSelectedAlarms() {
             // fun chooseAlarms() {
             // quarterlyAlarms()
             // hourlyAlarms()
@@ -36,7 +36,7 @@ class MainActivity : AppCompatActivity() {
         suspend fun loopAlarms() {
             while (true) {
                 delay(1000)  // Needed to start the UI
-                chooseAlarms()
+                startSelectedAlarms()
             }
         }
 
