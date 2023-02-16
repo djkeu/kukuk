@@ -10,21 +10,24 @@ import java.util.*
 
 
 class MainActivity : AppCompatActivity() {
+
+    private val formatter = SimpleDateFormat("mm:ss", Locale.getDefault())
+    private suspend fun delayWithMillis(millis: Long) = withContext(Dispatchers.Default) {
+        delay(millis) }
+
+
+    private var job: Job? = null
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        /*
-        ToDo: fix UI freeze in minutelyAlarms()
-        ToDo: fix UI freezes in hourlyAlarms()
-         */
-
-
         // Start and stop the alarms
         val kukuScope = MainScope()
-        var job: Job? = null
 
-        fun chooseAlarms() {
+        suspend fun chooseAlarms() {
+            // fun chooseAlarms() {
             // quarterlyAlarms()
             // hourlyAlarms()
             minutelyAlarms()
@@ -39,7 +42,7 @@ class MainActivity : AppCompatActivity() {
 
         fun startAlarms() {
             job = kukuScope.launch {
-                loopAlarms()
+            loopAlarms()
             }
         }
 
@@ -69,6 +72,9 @@ class MainActivity : AppCompatActivity() {
 
         /*
         // ToDo: UI freezing issues
+        // TODO: Avoid using findViewById() repeatedly in the code.
+            Instead, use data binding or ViewBinding to bind views to Kotlin classes.
+
         // Set kuku text
         val resultTextView: TextView = findViewById(R.id.textView2)
         resultTextView.text = getString(R.string.kukukTextView)
@@ -84,6 +90,7 @@ class MainActivity : AppCompatActivity() {
 
     // Play kuku sound once
     private fun kukuSoundOnce() {
+        // TODO: Add try-catch block around MediaPlayer.create call, catch exceptions
         val resourceId = resources.getIdentifier("keukuk", "raw", packageName)
         val kukuPlayer = MediaPlayer.create(this, resourceId)
         kukuPlayer.start()
@@ -100,10 +107,10 @@ class MainActivity : AppCompatActivity() {
 
 
     // Play kuku sound multiple times
-    private fun kukuSoundTimes(times: Int) {
+    private suspend fun kukuSoundTimes(times: Int) {
         for (i in 1..times) {
             kukuSoundOnce()
-            Thread.sleep(1000)
+            delayWithMillis(1000)
         }
     }
 
@@ -111,8 +118,10 @@ class MainActivity : AppCompatActivity() {
     // Quarterly alarms
     @Suppress("unused")
     private fun quarterlyAlarms() {
-        val getCurrentTime = Calendar.getInstance().time
-        val formatter = SimpleDateFormat("mm:ss", Locale.getDefault())
+        // val getCurrentTime = Calendar.getInstance().time
+        val getCurrentTime = Date()
+        // object formatter is moved to a class level variable, to be used in all alarms
+        // val formatter = SimpleDateFormat("mm:ss", Locale.getDefault())
         val currentTime = formatter.format(getCurrentTime)
 
         val quarters = arrayOf( "15:00", "30:00", "45:00" )
@@ -126,11 +135,11 @@ class MainActivity : AppCompatActivity() {
 
     // Hourly alarms
     @Suppress("unused", "unused")
-    private fun hourlyAlarms() {
-        val getCurrentTime = Calendar.getInstance().time
-        val formatter = SimpleDateFormat("hh:mm:ss", Locale.getDefault())
+    private suspend fun hourlyAlarms() {
+        val getCurrentTime = Date()
         val currentTime = formatter.format(getCurrentTime)
 
+        // TODO: Use when statement instead of long if..else ladder
         for (i in 1..24) {
             val times = if (i < 13) {
                 i - 0
@@ -153,39 +162,38 @@ class MainActivity : AppCompatActivity() {
 
     // Minutely alarms
     @Suppress("unused")
-    private fun minutelyAlarms() {
-        val getCurrentTime = Calendar.getInstance().time
-        val formatter = SimpleDateFormat("mm:ss", Locale.getDefault())
-        val currentTime = formatter.format(getCurrentTime)
+    private suspend fun minutelyAlarms() {
+        while (true) {
+            val getCurrentTime = Date()
+            val currentTime = formatter.format(getCurrentTime)
 
-        for (i in 0..59) {
-            val times = if (i == 0) {
-                10
-            } else if (i < 11) {
-                i - 0
-            } else if (i < 21) {
-                i - 10
-            } else if (i < 31) {
-                i - 20
-            } else if (i < 41) {
-                i - 30
-            } else if (i < 51) {
-                i - 40
-            } else {
-                i - 50
+            // TODO: Use when statement instead of long if..else ladder
+            for (i in 0..59) {
+                val times = if (i == 0) {
+                    10
+                } else if (i < 11) {
+                    i - 0
+                } else if (i < 21) {
+                    i - 10
+                } else if (i < 31) {
+                    i - 20
+                } else if (i < 41) {
+                    i - 30
+                } else if (i < 51) {
+                    i - 40
+                } else {
+                    i - 50
+                }
+
+                val formattedMinute = String.format("%02d", i)
+                val minute = "${formattedMinute}:00"
+
+                if (minute == currentTime) {
+                    kukuSoundTimes(times)
+                    kukuTextOnce()
+                }
             }
-
-            val formattedMinute = String.format("%02d", i)
-            val minute = "${formattedMinute}:00"
-
-            if (minute == currentTime) {
-                // Text once until SuperToasts are set correctly
-                kukuSoundTimes(times)
-                kukuTextOnce()
-                // kukuTextTimes(times)
-            }
-
+            delay(1000)
         }
-
     }
 }
