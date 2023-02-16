@@ -62,6 +62,7 @@ class MainActivity : AppCompatActivity() {
 
     // Show kuku text once
     private fun kukuTextOnce() {
+
         // ToDo: Switch to SuperToast for more options
         // URL: https://github.com/JohnPersano/SuperToasts
 
@@ -72,10 +73,8 @@ class MainActivity : AppCompatActivity() {
         kukuToast.show()
 
 
-        /*
         // ToDo: UI freezing issues
-        // TODO: Avoid using findViewById() repeatedly in the code.
-            Instead, use data binding or ViewBinding to bind views to Kotlin classes.
+        // Instead, use data binding or ViewBinding to bind views to Kotlin classes.
 
         // Set kuku text
         val resultTextView: TextView = findViewById(R.id.textView2)
@@ -86,7 +85,6 @@ class MainActivity : AppCompatActivity() {
             { resultTextView.text = "" },
             1000
         )
-        */
     }
 
 
