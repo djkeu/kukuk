@@ -12,11 +12,11 @@ import java.util.*
 class MainActivity : AppCompatActivity() {
 
     private val formatter = SimpleDateFormat("mm:ss", Locale.getDefault())
-    private suspend fun delayWithMillis(millis: Long) = withContext(Dispatchers.Default) {
-        delay(millis) }
-
-
     private var job: Job? = null
+
+    private suspend fun delayWithMillis(millis: Long) = withContext(Dispatchers.Default) {
+        delay(millis)
+    }
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
