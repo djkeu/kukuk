@@ -5,7 +5,6 @@ import android.os.Bundle
 import android.os.Looper
 import android.os.Handler
 import android.widget.TextView
-// import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import kotlinx.coroutines.*
 import java.text.SimpleDateFormat
@@ -62,14 +61,6 @@ class MainActivity : AppCompatActivity() {
 
     // Show kuku text once
     private fun kukuTextOnce() {
-        /*
-        val kukuToast = Toast.makeText(applicationContext,
-            getString((R.string.kukukTextView)),
-            Toast.LENGTH_LONG)
-
-        kukuToast.show()
-        */
-
         // Set kuku text
         val resultTextView: TextView = findViewById(R.id.textView2)
         resultTextView.text = getString(R.string.kukukTextView)
@@ -132,27 +123,29 @@ class MainActivity : AppCompatActivity() {
     @Suppress("unused", "unused")
     private suspend fun hourlyAlarms() {
         // FixMe: while (true) needed, like in minutely_alarms?
-        val getCurrentTime = Date()
-        val currentTime = formatter.format(getCurrentTime)
+        while (true) {
+            val getCurrentTime = Date()
+            val currentTime = formatter.format(getCurrentTime)
 
-        // TODO: Use when statement instead of long if..else ladder
-        for (i in 1..24) {
-            val times = if (i < 13) {
-                i - 0
-            } else {
-                i - 12
-            }
+            // TODO: Use when statement instead of long if..else ladder
+            for (i in 1..24) {
+                val times = if (i < 13) {
+                    i - 0
+                } else {
+                    i - 12
+                }
 
-            val formattedHour = String.format("%02d", i)
-            val hour = "${formattedHour}:00:00"
+                val formattedHour = String.format("%02d", i)
+                val hour = "${formattedHour}:00:00"
 
-            if (hour == currentTime) {
-                // Text once until SuperToasts are set correctly
-                kukuTextOnce()
-                kukuSoundTimes(times)
-                // kukuTextTimes(times)
+                if (hour == currentTime) {
+                    kukuTextOnce()
+                    kukuSoundTimes(times)
+                    // kukuTextTimes(times)
+                }
             }
         }
+        delay(1000)
     }
 
 
