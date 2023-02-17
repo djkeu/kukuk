@@ -76,10 +76,9 @@ class MainActivity : AppCompatActivity() {
 
         // ToDo: use variable / if..else for delay time, matching the time the sound sounds.
         // Reset kuku text
-        // Longer delay, test
         Handler(Looper.getMainLooper()).postDelayed(
             { resultTextView.text = "" },
-            3000
+            3000  // 3 seconds delay, reset to 1000 when used in kukuTextTimes90
         )
     }
 
