@@ -149,8 +149,8 @@ class MainActivity : AppCompatActivity() {
 
             if (hour == currentTime) {
                 // Text once until SuperToasts are set correctly
-                kukuSoundTimes(times)
                 kukuTextOnce()
+                kukuSoundTimes(times)
                 // kukuTextTimes(times)
             }
         }
@@ -186,8 +186,8 @@ class MainActivity : AppCompatActivity() {
                 val minute = "${formattedMinute}:00"
 
                 if (minute == currentTime) {
-                    kukuSoundTimes(times)
                     kukuTextOnce()
+                    kukuSoundTimes(times)
                 }
             }
             delay(1000)
