@@ -13,6 +13,7 @@ import java.util.*
 
 class MainActivity : AppCompatActivity() {
 
+    private val kukuScope = MainScope()
     private var job: Job? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -20,7 +21,6 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         // Start and stop the alarms
-        val kukuScope = MainScope()
 
         suspend fun startSelectedAlarms() {
             // quarterlyAlarms()
