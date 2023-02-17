@@ -27,29 +27,30 @@ class MainActivity : AppCompatActivity() {
     }
 
     // Start and stop the alarms
-    private fun startAlarms() {
-        job = kukuScope.launch {
-            loopAlarms()
-        }
-    }
-
     private fun stopAlarms() {
         job?.cancel()
         job = null
     }
 
-    private suspend fun startSelectedAlarms() {
-        // quarterlyAlarms()
-        // hourlyAlarms()
-        minutelyAlarms()
-    }
-
-    private suspend fun loopAlarms() {
-        while (true) {
-            delay(1000)  // Needed to start the UI
-            startSelectedAlarms()
+    private fun startAlarms() {
+        job = kukuScope.launch {
+            loopSelectedAlarms()
         }
     }
+
+
+    // Loop selected alarms
+    private suspend fun loopSelectedAlarms() {
+        while (true) {
+            delay(1000)  // Needed to start the UI
+
+            // Select alarms
+            // quarterlyAlarms()
+            // hourlyAlarms()
+            minutelyAlarms()
+        }
+    }
+
 
     // delay function for kukuTextOnce() and kukuSoundOnce()
     private suspend fun delayWithMillis(millis: Long) = withContext(Dispatchers.Default) {
