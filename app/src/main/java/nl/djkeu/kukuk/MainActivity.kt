@@ -96,7 +96,8 @@ class MainActivity : AppCompatActivity() {
     // Quarterly alarms
     @Suppress("unused")
     private suspend fun quarterlyAlarms() {
-        val getCurrentTime = Calendar.getInstance().time
+        // val getCurrentTime = Calendar.getInstance().time
+        val getCurrentTime = Date()
         // val getCurrentTime = Date()
         // object formatter is moved to a class level variable, to be used in all alarms
         val formatter = SimpleDateFormat("mm:ss", Locale.getDefault())
@@ -115,7 +116,8 @@ class MainActivity : AppCompatActivity() {
     // Hourly alarms
     @Suppress("unused", "unused")
     private suspend fun hourlyAlarms() {
-        val getCurrentTime = Calendar.getInstance().time
+        // val getCurrentTime = Calendar.getInstance().time
+        val getCurrentTime = Date()
         val formatter = SimpleDateFormat("hh:mm:ss", Locale.getDefault())
         val currentTime = formatter.format(getCurrentTime)
 
@@ -140,7 +142,8 @@ class MainActivity : AppCompatActivity() {
     // Minutely alarms
     @Suppress("unused")
     private suspend fun minutelyAlarms() {
-        val getCurrentTime = Calendar.getInstance().time
+        val getCurrentTime = Date()
+        // val getCurrentTime = Calendar.getInstance().time
         val formatter = SimpleDateFormat("mm:ss", Locale.getDefault())
         val currentTime = formatter.format(getCurrentTime)
 
