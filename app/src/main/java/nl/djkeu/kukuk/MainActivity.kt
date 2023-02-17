@@ -30,9 +30,9 @@ class MainActivity : AppCompatActivity() {
         val kukuScope = MainScope()
 
         suspend fun startSelectedAlarms() {
-            quarterlyAlarms()
-            hourlyAlarms()
-            // minutelyAlarms()
+            // quarterlyAlarms()
+            // hourlyAlarms()
+            minutelyAlarms()
         }
 
         suspend fun loopAlarms() {
