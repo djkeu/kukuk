@@ -96,7 +96,7 @@ class MainActivity : AppCompatActivity() {
 
 
     // Play kuku sound multiple times
-    private suspend fun kukuSoundTimes(times: Int) {
+    private suspend fun kukuMultipleTimes(times: Int) {
         for (i in 1..times) {
             kukuTextOnce()
             kukuSoundOnce()
@@ -144,7 +144,7 @@ class MainActivity : AppCompatActivity() {
             if (hour == currentTime) {
                 // kukuTextOnce()
                 // kukuTextTimes(times)
-                kukuSoundTimes(times)
+                kukuMultipleTimes(times)
             }
         }
     }
@@ -182,7 +182,7 @@ class MainActivity : AppCompatActivity() {
                 if (minute == currentTime) {
                     // kukuTextOnce()
                     // kukuTextTimes(times)
-                    kukuSoundTimes(times)
+                    kukuMultipleTimes(times)
                 }
             }
             delay(1000)
