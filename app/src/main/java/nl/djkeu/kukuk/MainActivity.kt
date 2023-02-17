@@ -77,13 +77,16 @@ class MainActivity : AppCompatActivity() {
         val resultTextView: TextView = findViewById(R.id.textView2)
         resultTextView.text = getString(R.string.kukukTextView)
 
-        /* Original, probably needed after testing
+        /*
+        Original code, probably needed after testing
         // Reset kuku text
         Handler(Looper.getMainLooper()).postDelayed(
             { resultTextView.text = "" },
             1000
         )
         */
+
+        // ToDo: use variable / if..else for delay time, matching the time the sound sounds.
         // Reset kuku text
         // Longer delay, test
         Handler(Looper.getMainLooper()).postDelayed(
