@@ -15,10 +15,6 @@ class MainActivity : AppCompatActivity() {
 
     private var job: Job? = null
 
-    private suspend fun delayWithMillis(millis: Long) = withContext(Dispatchers.Default) {
-        delay(millis)
-    }
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -57,6 +53,10 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    // delay function for kukuTextOnce() and kukuSoundOnce()
+    private suspend fun delayWithMillis(millis: Long) = withContext(Dispatchers.Default) {
+        delay(millis)
+    }
 
     // Show kuku text once
     private suspend fun kukuTextOnce() {
