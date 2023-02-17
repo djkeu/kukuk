@@ -15,7 +15,6 @@ class MainActivity : AppCompatActivity() {
 
     private var job: Job? = null
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -64,7 +63,6 @@ class MainActivity : AppCompatActivity() {
         val resultTextView: TextView = findViewById(R.id.textView2)
         resultTextView.text = getString(R.string.kukukTextView)
 
-        // ToDo: use variable / if..else for delay time, matching the time the sound sounds in seconds.
         // Reset kuku text
         Handler(Looper.getMainLooper()).postDelayed(
             { resultTextView.text = "" },
