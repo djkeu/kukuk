@@ -14,6 +14,7 @@ import java.util.*
 
 class MainActivity : AppCompatActivity() {
 
+    // this formatter works only for m_ and q_alarms(), not hourlyAlarms()
     // private val formatter = SimpleDateFormat("mm:ss", Locale.getDefault())
     private var job: Job? = null
 
@@ -74,7 +75,7 @@ class MainActivity : AppCompatActivity() {
         val resultTextView: TextView = findViewById(R.id.textView2)
         resultTextView.text = getString(R.string.kukukTextView)
 
-        // ToDo: use variable / if..else for delay time, matching the time the sound sounds.
+        // ToDo: use variable / if..else for delay time, matching the time the sound sounds in seconds.
         // Reset kuku text
         Handler(Looper.getMainLooper()).postDelayed(
             { resultTextView.text = "" },
@@ -161,7 +162,7 @@ class MainActivity : AppCompatActivity() {
     // Minutely alarms
     @Suppress("unused")
     private suspend fun minutelyAlarms() {
-        while (true) {
+        while (true) {  // TODO: while loop needed?
             val getCurrentTime = Calendar.getInstance().time
             val formatter = SimpleDateFormat("mm:ss", Locale.getDefault())
             val currentTime = formatter.format(getCurrentTime)
