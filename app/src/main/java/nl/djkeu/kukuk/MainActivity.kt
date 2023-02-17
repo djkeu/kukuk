@@ -83,19 +83,7 @@ class MainActivity : AppCompatActivity() {
     }
 
 
-    // Show kuku text multiple times
-    /*
-    @Suppress("unused")
-    private fun kukuTextTimes(times: Int) {
-        // Moved to kukuSoundTimes
-        for (i in 1..times) {
-            kukuTextOnce()
-        }
-    }
-    */
-
-
-    // Play kuku sound multiple times
+    // Kuku multiple times
     private suspend fun kukuMultipleTimes(times: Int) {
         for (i in 1..times) {
             kukuTextOnce()
@@ -142,8 +130,6 @@ class MainActivity : AppCompatActivity() {
             val hour = "${formattedHour}:00:00"
 
             if (hour == currentTime) {
-                // kukuTextOnce()
-                // kukuTextTimes(times)
                 kukuMultipleTimes(times)
             }
         }
@@ -180,8 +166,6 @@ class MainActivity : AppCompatActivity() {
                 val minute = "${formattedMinute}:00"
 
                 if (minute == currentTime) {
-                    // kukuTextOnce()
-                    // kukuTextTimes(times)
                     kukuMultipleTimes(times)
                 }
             }
