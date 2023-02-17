@@ -32,7 +32,7 @@ class MainActivity : AppCompatActivity() {
         suspend fun startSelectedAlarms() {
             quarterlyAlarms()
             hourlyAlarms()
-            minutelyAlarms()
+            // minutelyAlarms()
         }
 
         suspend fun loopAlarms() {
