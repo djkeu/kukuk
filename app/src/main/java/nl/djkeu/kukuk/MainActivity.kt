@@ -74,11 +74,12 @@ class MainActivity : AppCompatActivity() {
 
 
     // Play kuku sound once
-    private fun kukuSoundOnce() {
+    private suspend fun kukuSoundOnce() {
         // TODO: Add try-catch block around MediaPlayer.create call, catch exceptions
         val resourceId = resources.getIdentifier("keukuk", "raw", packageName)
         val kukuPlayer = MediaPlayer.create(this, resourceId)
         kukuPlayer.start()
+        delayWithMillis(1000)
     }
 
 
@@ -95,7 +96,6 @@ class MainActivity : AppCompatActivity() {
     private suspend fun kukuSoundTimes(times: Int) {
         for (i in 1..times) {
             kukuSoundOnce()
-            delayWithMillis(1000)
         }
     }
 
