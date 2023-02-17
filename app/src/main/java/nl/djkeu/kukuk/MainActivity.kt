@@ -144,8 +144,8 @@ class MainActivity : AppCompatActivity() {
                     // kukuTextTimes(times)
                 }
             }
+            delay(1000)
         }
-        delay(1000)
     }
 
 
