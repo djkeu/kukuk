@@ -68,7 +68,7 @@ class MainActivity : AppCompatActivity() {
         // Reset kuku text
         Handler(Looper.getMainLooper()).postDelayed(
             { resultTextView.text = "" },
-            3000  // 3 seconds delay, reset to 1000 when used in kukuTextTimes90
+            1000  // 3 seconds delay, reset to 1000 when used in kukuTextTimes90
         )
     }
 
