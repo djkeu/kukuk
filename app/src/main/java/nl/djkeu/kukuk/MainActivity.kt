@@ -102,7 +102,7 @@ class MainActivity : AppCompatActivity() {
 
     // Quarterly alarms
     @Suppress("unused")
-    private fun quarterlyAlarms() {
+    private suspend fun quarterlyAlarms() {
         val getCurrentTime = Calendar.getInstance().time
         // val getCurrentTime = Date()
         // object formatter is moved to a class level variable, to be used in all alarms
