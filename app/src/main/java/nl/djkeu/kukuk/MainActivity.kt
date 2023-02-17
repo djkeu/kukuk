@@ -70,9 +70,6 @@ class MainActivity : AppCompatActivity() {
         kukuToast.show()
         */
 
-        // ToDo: UI freezing issues
-        // Instead, use data binding or ViewBinding to bind views to Kotlin classes.
-
         // Set kuku text
         val resultTextView: TextView = findViewById(R.id.textView2)
         resultTextView.text = getString(R.string.kukukTextView)
