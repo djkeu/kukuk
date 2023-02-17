@@ -132,6 +132,7 @@ class MainActivity : AppCompatActivity() {
     // Hourly alarms
     @Suppress("unused", "unused")
     private suspend fun hourlyAlarms() {
+        // FixMe: while (true) needed, like in minutely_alarms?
         val getCurrentTime = Date()
         val currentTime = formatter.format(getCurrentTime)
 
