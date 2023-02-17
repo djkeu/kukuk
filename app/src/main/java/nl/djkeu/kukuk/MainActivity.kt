@@ -142,7 +142,7 @@ class MainActivity : AppCompatActivity() {
             val hour = "${formattedHour}:00:00"
 
             if (hour == currentTime) {
-                kukuTextOnce()
+                // kukuTextOnce()
                 // kukuTextTimes(times)
                 kukuSoundTimes(times)
             }
