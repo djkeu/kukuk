@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.os.Looper
 import android.os.Handler
 import android.widget.TextView
+// import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import kotlinx.coroutines.*
 import java.text.SimpleDateFormat
@@ -13,7 +14,7 @@ import java.util.*
 
 class MainActivity : AppCompatActivity() {
 
-    private val formatter = SimpleDateFormat("mm:ss", Locale.getDefault())
+    // private val formatter = SimpleDateFormat("mm:ss", Locale.getDefault())
     private var job: Job? = null
 
     private suspend fun delayWithMillis(millis: Long) = withContext(Dispatchers.Default) {
@@ -61,6 +62,14 @@ class MainActivity : AppCompatActivity() {
 
     // Show kuku text once
     private fun kukuTextOnce() {
+        /*
+        val kukuToast = Toast.makeText(applicationContext,
+            getString((R.string.kukukTextView)),
+            Toast.LENGTH_LONG)
+
+        kukuToast.show()
+        */
+
         // Set kuku text
         val resultTextView: TextView = findViewById(R.id.textView2)
         resultTextView.text = getString(R.string.kukukTextView)
@@ -104,13 +113,14 @@ class MainActivity : AppCompatActivity() {
     // Quarterly alarms
     @Suppress("unused")
     private fun quarterlyAlarms() {
-        // val getCurrentTime = Calendar.getInstance().time
-        val getCurrentTime = Date()
+        val getCurrentTime = Calendar.getInstance().time
+        // val getCurrentTime = Date()
         // object formatter is moved to a class level variable, to be used in all alarms
-        // val formatter = SimpleDateFormat("mm:ss", Locale.getDefault())
+        val formatter = SimpleDateFormat("mm:ss", Locale.getDefault())
         val currentTime = formatter.format(getCurrentTime)
 
         val quarters = arrayOf( "15:00", "30:00", "45:00" )
+        // TEST: val quarters = arrayOf( "05:00", "10:00", "15:00", "20:00", "25:00", "30:00", "35:00", "40:00", "45:00", "50:00", "55:00" )
 
         if (currentTime in quarters) {
             kukuTextOnce()
@@ -123,28 +133,27 @@ class MainActivity : AppCompatActivity() {
     @Suppress("unused", "unused")
     private suspend fun hourlyAlarms() {
         // FixMe: while (true) needed, like in minutely_alarms?
-        while (true) {
-            val getCurrentTime = Date()
-            val currentTime = formatter.format(getCurrentTime)
+        val getCurrentTime = Calendar.getInstance().time
+        val formatter = SimpleDateFormat("hh:mm:ss", Locale.getDefault())
+        val currentTime = formatter.format(getCurrentTime)
 
-            // TODO: Use when statement instead of long if..else ladder
-            for (i in 1..24) {
-                val times = if (i < 13) {
-                    i - 0
-                } else {
-                    i - 12
-                }
-
-                val formattedHour = String.format("%02d", i)
-                val hour = "${formattedHour}:00:00"
-
-                if (hour == currentTime) {
-                    kukuTextOnce()
-                    kukuSoundTimes(times)
-                    // kukuTextTimes(times)
-                }
+        // TODO: Use when statement instead of long if..else ladder
+        for (i in 1..24) {
+            val times = if (i < 13) {
+                i - 0
+            } else {
+                i - 12
             }
-            delay(1000)
+
+            val formattedHour = String.format("%02d", i)
+            val hour = "${formattedHour}:00:00"
+
+            if (hour == currentTime) {
+                // Text once until SuperToasts are set correctly
+                kukuTextOnce()
+                kukuSoundTimes(times)
+                // kukuTextTimes(times)
+            }
         }
     }
 
@@ -153,7 +162,8 @@ class MainActivity : AppCompatActivity() {
     @Suppress("unused")
     private suspend fun minutelyAlarms() {
         while (true) {
-            val getCurrentTime = Date()
+            val getCurrentTime = Calendar.getInstance().time
+            val formatter = SimpleDateFormat("mm:ss", Locale.getDefault())
             val currentTime = formatter.format(getCurrentTime)
 
             // TODO: Use when statement instead of long if..else ladder
