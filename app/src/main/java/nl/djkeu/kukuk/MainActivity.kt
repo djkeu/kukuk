@@ -180,7 +180,7 @@ class MainActivity : AppCompatActivity() {
                 val minute = "${formattedMinute}:00"
 
                 if (minute == currentTime) {
-                    kukuTextOnce()
+                    // kukuTextOnce()
                     // kukuTextTimes(times)
                     kukuSoundTimes(times)
                 }
