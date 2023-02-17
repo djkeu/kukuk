@@ -20,35 +20,34 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        // Start and stop the alarms
-
-        suspend fun startSelectedAlarms() {
-            // quarterlyAlarms()
-            // hourlyAlarms()
-            minutelyAlarms()
-        }
-
-        suspend fun loopAlarms() {
-            while (true) {
-                delay(1000)  // Needed to start the UI
-                startSelectedAlarms()
-            }
-        }
-
-        fun startAlarms() {
-            job = kukuScope.launch {
-            loopAlarms()
-            }
-        }
-
-        fun stopAlarms() {
-            job?.cancel()
-            job = null
-        }
-
         runBlocking {
             stopAlarms()
             startAlarms()
+        }
+    }
+
+    // Start and stop the alarms
+    private fun startAlarms() {
+        job = kukuScope.launch {
+            loopAlarms()
+        }
+    }
+
+    private fun stopAlarms() {
+        job?.cancel()
+        job = null
+    }
+
+    private suspend fun startSelectedAlarms() {
+        // quarterlyAlarms()
+        // hourlyAlarms()
+        minutelyAlarms()
+    }
+
+    private suspend fun loopAlarms() {
+        while (true) {
+            delay(1000)  // Needed to start the UI
+            startSelectedAlarms()
         }
     }
 
