@@ -59,7 +59,7 @@ class MainActivity : AppCompatActivity() {
 
 
     // Show kuku text once
-    private fun kukuTextOnce() {
+    private suspend fun kukuTextOnce() {
         // Set kuku text
         val resultTextView: TextView = findViewById(R.id.textView2)
         resultTextView.text = getString(R.string.kukukTextView)
@@ -70,6 +70,7 @@ class MainActivity : AppCompatActivity() {
             { resultTextView.text = "" },
             1000  // 3 seconds delay, reset to 1000 when used in kukuTextTimes90
         )
+        delayWithMillis(200)
     }
 
 
@@ -80,6 +81,8 @@ class MainActivity : AppCompatActivity() {
         val kukuPlayer = MediaPlayer.create(this, resourceId)
         kukuPlayer.start()
         delayWithMillis(1000)
+        kukuPlayer.stop()
+        delayWithMillis(200)
     }
 
 
