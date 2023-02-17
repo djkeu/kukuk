@@ -2,7 +2,10 @@ package nl.djkeu.kukuk
 
 import android.media.MediaPlayer
 import android.os.Bundle
-import android.widget.Toast
+import android.os.Looper
+import android.os.Handler
+import android.widget.TextView
+// import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import kotlinx.coroutines.*
 import java.text.SimpleDateFormat
@@ -12,11 +15,11 @@ import java.util.*
 class MainActivity : AppCompatActivity() {
 
     private val formatter = SimpleDateFormat("mm:ss", Locale.getDefault())
-    private suspend fun delayWithMillis(millis: Long) = withContext(Dispatchers.Default) {
-        delay(millis) }
-
-
     private var job: Job? = null
+
+    private suspend fun delayWithMillis(millis: Long) = withContext(Dispatchers.Default) {
+        delay(millis)
+    }
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -27,7 +30,6 @@ class MainActivity : AppCompatActivity() {
         val kukuScope = MainScope()
 
         suspend fun startSelectedAlarms() {
-            // fun chooseAlarms() {
             // quarterlyAlarms()
             // hourlyAlarms()
             minutelyAlarms()
@@ -60,31 +62,25 @@ class MainActivity : AppCompatActivity() {
 
     // Show kuku text once
     private fun kukuTextOnce() {
-        // ToDo: Switch to SuperToast for more options
-        // URL: https://github.com/JohnPersano/SuperToasts
-
+        /*
         val kukuToast = Toast.makeText(applicationContext,
             getString((R.string.kukukTextView)),
             Toast.LENGTH_LONG)
 
         kukuToast.show()
-
-
-        /*
-        // ToDo: UI freezing issues
-        // TODO: Avoid using findViewById() repeatedly in the code.
-            Instead, use data binding or ViewBinding to bind views to Kotlin classes.
+        */
 
         // Set kuku text
         val resultTextView: TextView = findViewById(R.id.textView2)
         resultTextView.text = getString(R.string.kukukTextView)
 
+        // ToDo: use variable / if..else for delay time, matching the time the sound sounds.
         // Reset kuku text
+        // Longer delay, test
         Handler(Looper.getMainLooper()).postDelayed(
             { resultTextView.text = "" },
-            1000
+            3000
         )
-        */
     }
 
 
@@ -136,6 +132,7 @@ class MainActivity : AppCompatActivity() {
     // Hourly alarms
     @Suppress("unused", "unused")
     private suspend fun hourlyAlarms() {
+        // FixMe: while (true) needed, like in minutely_alarms?
         val getCurrentTime = Date()
         val currentTime = formatter.format(getCurrentTime)
 
@@ -152,8 +149,8 @@ class MainActivity : AppCompatActivity() {
 
             if (hour == currentTime) {
                 // Text once until SuperToasts are set correctly
-                kukuSoundTimes(times)
                 kukuTextOnce()
+                kukuSoundTimes(times)
                 // kukuTextTimes(times)
             }
         }
@@ -189,8 +186,8 @@ class MainActivity : AppCompatActivity() {
                 val minute = "${formattedMinute}:00"
 
                 if (minute == currentTime) {
-                    kukuSoundTimes(times)
                     kukuTextOnce()
+                    kukuSoundTimes(times)
                 }
             }
             delay(1000)
