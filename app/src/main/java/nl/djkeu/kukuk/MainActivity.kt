@@ -26,7 +26,6 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    // Start and stop the alarms
     private fun stopAlarms() {
         job?.cancel()
         job = null
@@ -38,13 +37,11 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-
-    // Loop selected alarms
     private suspend fun loopSelectedAlarms() {
         while (true) {
             delay(1000)  // Needed to start the UI
 
-            // Select alarms
+            // Select alarms to trigger
             // quarterlyAlarms()
             // hourlyAlarms()
             minutelyAlarms()
@@ -71,7 +68,6 @@ class MainActivity : AppCompatActivity() {
         delayWithMillis(200)
     }
 
-
     // Play kuku sound once
     private suspend fun kukuSoundOnce() {
         val resourceId = resources.getIdentifier("keukuk", "raw", packageName)
@@ -81,7 +77,6 @@ class MainActivity : AppCompatActivity() {
         delayWithMillis(1100)
         kukuPlayer.release()
     }
-
 
     // Kuku multiple times
     private suspend fun kukuMultipleTimes(times: Int) {
@@ -95,13 +90,11 @@ class MainActivity : AppCompatActivity() {
     // Quarterly alarms
     @Suppress("unused")
     private suspend fun quarterlyAlarms() {
-        // val getCurrentTime = Calendar.getInstance().time
         val getCurrentTime = Date()
         val formatter = SimpleDateFormat("mm:ss", Locale.getDefault())
         val currentTime = formatter.format(getCurrentTime)
 
         val quarters = arrayOf( "15:00", "30:00", "45:00" )
-        // TEST: val quarters = arrayOf( "05:00", "10:00", "15:00", "20:00", "25:00", "30:00", "35:00", "40:00", "45:00", "50:00", "55:00" )
 
         suspend fun triggerAlarm() {
             kukuTextOnce()
@@ -112,7 +105,6 @@ class MainActivity : AppCompatActivity() {
             triggerAlarm()
         }
     }
-
 
     // Hourly alarms
     @Suppress("unused", "unused")
@@ -135,7 +127,6 @@ class MainActivity : AppCompatActivity() {
             }
         }
     }
-
 
     // Minutely alarms
     @Suppress("unused")
