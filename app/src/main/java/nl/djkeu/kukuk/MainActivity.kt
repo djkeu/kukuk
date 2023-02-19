@@ -108,9 +108,13 @@ class MainActivity : AppCompatActivity() {
         val quarters = arrayOf( "15:00", "30:00", "45:00" )
         // TEST: val quarters = arrayOf( "05:00", "10:00", "15:00", "20:00", "25:00", "30:00", "35:00", "40:00", "45:00", "50:00", "55:00" )
 
-        if (currentTime in quarters) {
+        suspend fun triggerAlarm() {
             kukuTextOnce()
             kukuSoundOnce()
+        }
+
+        if (currentTime in quarters) {
+            triggerAlarm()
         }
     }
 
