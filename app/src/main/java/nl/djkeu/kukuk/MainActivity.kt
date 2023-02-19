@@ -45,9 +45,9 @@ class MainActivity : AppCompatActivity() {
             delay(1000)  // Needed to start the UI
 
             // Select alarms
-            // quarterlyAlarms()
-            // hourlyAlarms()
-            minutelyAlarms()
+            quarterlyAlarms()
+            hourlyAlarms()
+            // minutelyAlarms()
         }
     }
 
@@ -74,17 +74,18 @@ class MainActivity : AppCompatActivity() {
 
     // Play kuku sound once
     private suspend fun kukuSoundOnce() {
-        try {
-            val resourceId = resources.getIdentifier("keukuk", "raw", packageName)
-            val kukuPlayer = MediaPlayer.create(this, resourceId)
 
-            kukuPlayer.start()
-            delayWithMillis(1200)
-            kukuPlayer.release() // Release the MediaPlayer instance
-        } catch (e: Exception) {
-            // Handle the exception here
-        }
+        // ToDo: Add try-catch block around MediaPlayer.create call, catch exceptions
+        // ToDo: W/MediaPlayer-JNI: MediaPlayer finalized without being released
+
+        val resourceId = resources.getIdentifier("keukuk", "raw", packageName)
+        val kukuPlayer = MediaPlayer.create(this, resourceId)
+
+        kukuPlayer.start()
+        delayWithMillis(1200)
+        kukuPlayer.release()
     }
+
 
     // Kuku multiple times
     private suspend fun kukuMultipleTimes(times: Int) {
