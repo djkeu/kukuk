@@ -147,22 +147,15 @@ class MainActivity : AppCompatActivity() {
         val formatter = SimpleDateFormat("mm:ss", Locale.getDefault())
         val currentTime = formatter.format(getCurrentTime)
 
-        // TODO: Use when statement instead of long if..else ladder
         for (i in 0..59) {
-            val times = if (i == 0) {
-                10
-            } else if (i < 11) {
-                i - 0
-            } else if (i < 21) {
-                i - 10
-            } else if (i < 31) {
-                i - 20
-            } else if (i < 41) {
-                i - 30
-            } else if (i < 51) {
-                i - 40
-            } else {
-                i - 50
+            val times = when {
+                i == 0 -> 10
+                i < 11 -> i - 0
+                i < 21 -> i - 10
+                i < 31 -> i - 20
+                i < 41 -> i - 30
+                i < 51 -> i - 40
+                else -> i - 50
             }
 
             val formattedMinute = String.format("%02d", i)
