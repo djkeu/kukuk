@@ -74,7 +74,10 @@ class MainActivity : AppCompatActivity() {
 
     // Play kuku sound once
     private suspend fun kukuSoundOnce() {
-        // TODO: Add try-catch block around MediaPlayer.create call, catch exceptions
+
+        // ToDo: Add try-catch block around MediaPlayer.create call, catch exceptions
+        // ToDo: W/MediaPlayer-JNI: MediaPlayer finalized without being released
+
         val resourceId = resources.getIdentifier("keukuk", "raw", packageName)
         val kukuPlayer = MediaPlayer.create(this, resourceId)
 
