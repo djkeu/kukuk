@@ -45,9 +45,9 @@ class MainActivity : AppCompatActivity() {
             delay(1000)  // Needed to start the UI
 
             // Select alarms
-            quarterlyAlarms()
-            hourlyAlarms()
-            // minutelyAlarms()
+            // quarterlyAlarms()
+            // hourlyAlarms()
+            minutelyAlarms()
         }
     }
 
@@ -66,7 +66,7 @@ class MainActivity : AppCompatActivity() {
         // Reset kuku text
         Handler(Looper.getMainLooper()).postDelayed(
             { resultTextView.text = "" },
-            1000
+            900
         )
         delayWithMillis(200)
     }
@@ -78,7 +78,7 @@ class MainActivity : AppCompatActivity() {
         val kukuPlayer = MediaPlayer.create(this, resourceId)
 
         kukuPlayer.start()
-        delayWithMillis(1200)
+        delayWithMillis(1100)
         kukuPlayer.release()
     }
 
