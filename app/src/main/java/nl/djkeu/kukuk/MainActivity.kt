@@ -42,9 +42,9 @@ class MainActivity : AppCompatActivity() {
             delay(1000)  // Needed to start the UI
 
             // Select alarms to trigger
-            // quarterlyAlarms()
+            minutelyAlarms()  // For testing purposes
             // hourlyAlarms()
-            minutelyAlarms()
+            // quarterlyAlarms()
         }
     }
 
@@ -87,22 +87,30 @@ class MainActivity : AppCompatActivity() {
     }
 
 
-    // Quarterly alarms
+    // Minutely alarms, for testing purposes
     @Suppress("unused")
-    private suspend fun quarterlyAlarms() {
+    private suspend fun minutelyAlarms() {
         val getCurrentTime = Date()
         val formatter = SimpleDateFormat("mm:ss", Locale.getDefault())
         val currentTime = formatter.format(getCurrentTime)
 
-        val quarters = arrayOf( "15:00", "30:00", "45:00" )
+        for (i in 0..59) {
+            val times = when {
+                i == 0 -> 10
+                i < 11 -> i - 0
+                i < 21 -> i - 10
+                i < 31 -> i - 20
+                i < 41 -> i - 30
+                i < 51 -> i - 40
+                else -> i - 50
+            }
 
-        suspend fun triggerAlarm() {
-            kukuTextOnce()
-            kukuSoundOnce()
-        }
+            val formattedMinute = String.format("%02d", i)
+            val minute = "${formattedMinute}:00"
 
-        if (currentTime in quarters) {
-            triggerAlarm()
+            if (minute == currentTime) {
+                kukuMultipleTimes(times)
+            }
         }
     }
 
@@ -128,30 +136,22 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    // Minutely alarms
+    // Quarterly alarms
     @Suppress("unused")
-    private suspend fun minutelyAlarms() {
+    private suspend fun quarterlyAlarms() {
         val getCurrentTime = Date()
         val formatter = SimpleDateFormat("mm:ss", Locale.getDefault())
         val currentTime = formatter.format(getCurrentTime)
 
-        for (i in 0..59) {
-            val times = when {
-                i == 0 -> 10
-                i < 11 -> i - 0
-                i < 21 -> i - 10
-                i < 31 -> i - 20
-                i < 41 -> i - 30
-                i < 51 -> i - 40
-                else -> i - 50
-            }
+        val quarters = arrayOf( "15:00", "30:00", "45:00" )
 
-            val formattedMinute = String.format("%02d", i)
-            val minute = "${formattedMinute}:00"
+        suspend fun triggerAlarm() {
+            kukuTextOnce()
+            kukuSoundOnce()
+        }
 
-            if (minute == currentTime) {
-                kukuMultipleTimes(times)
-            }
+        if (currentTime in quarters) {
+            triggerAlarm()
         }
     }
 }
