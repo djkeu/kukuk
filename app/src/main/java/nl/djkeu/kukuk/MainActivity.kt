@@ -49,44 +49,6 @@ class MainActivity : AppCompatActivity() {
     }
 
 
-    // delay function for kukuTextOnce() and kukuSoundOnce()
-    private suspend fun delayWithMillis(millis: Long) = withContext(Dispatchers.Default) {
-        delay(millis)
-    }
-
-    // Show kuku text once
-    private suspend fun kukuTextOnce() {
-        // Set kuku text
-        val resultTextView: TextView = findViewById(R.id.textView2)
-        resultTextView.text = getString(R.string.kukukTextView)
-
-        // Reset kuku text
-        Handler(Looper.getMainLooper()).postDelayed(
-            { resultTextView.text = "" },
-            900
-        )
-        delayWithMillis(200)
-    }
-
-    // Play kuku sound once
-    private suspend fun kukuSoundOnce() {
-        val resourceId = resources.getIdentifier("keukuk", "raw", packageName)
-        val kukuPlayer = MediaPlayer.create(this, resourceId)
-
-        kukuPlayer.start()
-        delayWithMillis(1100)
-        kukuPlayer.release()
-    }
-
-    // Kuku multiple times
-    private suspend fun kukuMultipleTimes(times: Int) {
-        for (i in 1..times) {
-            kukuTextOnce()
-            kukuSoundOnce()
-        }
-    }
-
-
     // Minutely alarms, for testing purposes
     @Suppress("unused")
     private suspend fun minutelyAlarms() {
@@ -152,6 +114,44 @@ class MainActivity : AppCompatActivity() {
 
         if (currentTime in quarters) {
             triggerAlarm()
+        }
+    }
+
+
+    // delay function for kukuTextOnce() and kukuSoundOnce()
+    private suspend fun delayWithMillis(millis: Long) = withContext(Dispatchers.Default) {
+        delay(millis)
+    }
+
+    // Show kuku text once
+    private suspend fun kukuTextOnce() {
+        // Set kuku text
+        val resultTextView: TextView = findViewById(R.id.textView2)
+        resultTextView.text = getString(R.string.kukukTextView)
+
+        // Reset kuku text
+        Handler(Looper.getMainLooper()).postDelayed(
+            { resultTextView.text = "" },
+            900
+        )
+        delayWithMillis(200)
+    }
+
+    // Play kuku sound once
+    private suspend fun kukuSoundOnce() {
+        val resourceId = resources.getIdentifier("keukuk", "raw", packageName)
+        val kukuPlayer = MediaPlayer.create(this, resourceId)
+
+        kukuPlayer.start()
+        delayWithMillis(1100)
+        kukuPlayer.release()
+    }
+
+    // Kuku multiple times
+    private suspend fun kukuMultipleTimes(times: Int) {
+        for (i in 1..times) {
+            kukuTextOnce()
+            kukuSoundOnce()
         }
     }
 }
