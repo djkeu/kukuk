@@ -77,7 +77,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     // Hourly alarms
-    @Suppress("unused", "unused")
+    @Suppress("unused")
     private suspend fun hourlyAlarms() {
         val getCurrentTime = Date()
         val formatter = SimpleDateFormat("hh:mm:ss", Locale.getDefault())
