@@ -42,9 +42,9 @@ class MainActivity : AppCompatActivity() {
             delay(1000)  // Needed to start the UI
 
             // Select alarms to trigger
-            minutelyAlarms()  // For testing purposes
-            // hourlyAlarms()
-            // quarterlyAlarms()
+            // minutelyAlarms()  // For testing purposes
+            hourlyAlarms()
+            quarterlyAlarms()
         }
     }
 
