@@ -37,19 +37,18 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+
+    // Select alarms
     private suspend fun loopSelectedAlarms() {
         while (true) {
             delay(1000)  // Needed to start the UI
 
-            // Select alarms to trigger
             // minutelyAlarms()  // For testing purposes
             hourlyAlarms()
             quarterlyAlarms()
         }
     }
 
-
-    // Minutely alarms, for testing purposes
     @Suppress("unused")
     private suspend fun minutelyAlarms() {
         val getCurrentTime = Date()
@@ -76,7 +75,6 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    // Hourly alarms
     @Suppress("unused")
     private suspend fun hourlyAlarms() {
         val getCurrentTime = Date()
@@ -98,7 +96,6 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    // Quarterly alarms
     @Suppress("unused")
     private suspend fun quarterlyAlarms() {
         val getCurrentTime = Date()
@@ -117,16 +114,21 @@ class MainActivity : AppCompatActivity() {
     }
 
 
-    // delay function for kukuTextOnce() and kukuSoundOnce()
-    private suspend fun delayWithMillis(millis: Long) = withContext(Dispatchers.Default) {
-        delay(millis)
+    // Show and sound the Kuku
+    private suspend fun kukuMultipleTimes(times: Int) {
+        for (i in 1..times) {
+            kukuOnce()
+        }
     }
-
-    // Show kuku text once
 
     private suspend fun kukuOnce() {
         kukuTextOnce()
         kukuSoundOnce()
+    }
+
+    private suspend fun delayWithMillis(millis: Long) = withContext(Dispatchers.Default) {
+        // delay function for kukuTextOnce() and kukuSoundOnce()
+        delay(millis)
     }
 
     private suspend fun kukuTextOnce() {
@@ -142,7 +144,6 @@ class MainActivity : AppCompatActivity() {
         delayWithMillis(200)
     }
 
-    // Play kuku sound once
     private suspend fun kukuSoundOnce() {
         val resourceId = resources.getIdentifier("keukuk", "raw", packageName)
         val kukuPlayer = MediaPlayer.create(this, resourceId)
@@ -152,10 +153,4 @@ class MainActivity : AppCompatActivity() {
         kukuPlayer.release()
     }
 
-    // Kuku multiple times
-    private suspend fun kukuMultipleTimes(times: Int) {
-        for (i in 1..times) {
-            kukuOnce()
-        }
-    }
 }
