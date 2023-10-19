@@ -108,8 +108,7 @@ class MainActivity : AppCompatActivity() {
         val quarters = arrayOf( "15:00", "30:00", "45:00" )
 
         suspend fun triggerAlarm() {
-            kukuTextOnce()
-            kukuSoundOnce()
+            kukuOnce()
         }
 
         if (currentTime in quarters) {
@@ -124,6 +123,12 @@ class MainActivity : AppCompatActivity() {
     }
 
     // Show kuku text once
+
+    private suspend fun kukuOnce() {
+        kukuTextOnce()
+        kukuSoundOnce()
+    }
+
     private suspend fun kukuTextOnce() {
         // Set kuku text
         val resultTextView: TextView = findViewById(R.id.textView2)
@@ -150,8 +155,7 @@ class MainActivity : AppCompatActivity() {
     // Kuku multiple times
     private suspend fun kukuMultipleTimes(times: Int) {
         for (i in 1..times) {
-            kukuTextOnce()
-            kukuSoundOnce()
+            kukuOnce()
         }
     }
 }
