@@ -1,7 +1,9 @@
 # kukuk-kotlin
 
 ### Abandoned!
-In favor of the JS version
+In favor of the JavaScript version
+https://github.com/djkeu/kukuk-js
+
 
 ## Obsolete readme
 Always wanted to own a cuckoo clock but couldn't afford one?
