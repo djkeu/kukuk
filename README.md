@@ -1,4 +1,7 @@
-# kukuk-android
+# kukuk-kotlin
+
+### Abandoned!
+In favor of the JS version
 
 Always wanted to own a cuckoo clock but couldn't afford one?
 Well, bless the marvels of the modern world, you can have one on your phone now. For Free!
