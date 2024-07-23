@@ -1,7 +1,7 @@
 # kukuk-kotlin
 
 ### Abandoned!
-In favor of the JavaScript version
+In favor of the JavaScript version\
 https://github.com/djkeu/kukuk-js
 
 
